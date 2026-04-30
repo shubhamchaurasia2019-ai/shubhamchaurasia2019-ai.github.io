@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shubham Chaurasia — Director of Technology</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy:   #0f1f3d;
+    --blue:   #1a4480;
+    --accent: #2e7df7;
+    --gold:   #c9a84c;
+    --light:  #f4f6fb;
+    --white:  #ffffff;
+    --gray:   #64748b;
+    --border: #dde3ef;
+    --text:   #1e293b;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(15,31,61,0.96);
+    backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 3rem; height: 60px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; color: var(--white); letter-spacing: 0.02em;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.7); text-decoration: none;
+    font-size: 0.82rem; letter-spacing: 0.08em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex; align-items: center;
+    position: relative; overflow: hidden;
+    padding: 80px 3rem 3rem;
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(46,125,247,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(46,125,247,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .hero-glow {
+    position: absolute; top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(46,125,247,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-glow2 {
+    position: absolute; bottom: -150px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; width: 100%; }
+  .hero-tag {
+    display: inline-block;
+    background: rgba(46,125,247,0.15);
+    border: 1px solid rgba(46,125,247,0.3);
+    color: var(--accent);
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 0.35rem 1rem; border-radius: 99px; margin-bottom: 1.5rem;
+    font-family: 'DM Mono', monospace;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    font-weight: 900; color: var(--white);
+    line-height: 1.05; margin-bottom: 1rem;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub {
+    font-size: 1.15rem; color: rgba(255,255,255,0.6);
+    max-width: 580px; margin-bottom: 2rem;
+    animation: fadeUp 0.7s 0.2s ease both;
+  }
+  .hero-stats {
+    display: flex; gap: 2.5rem; margin-bottom: 2.5rem;
+    animation: fadeUp 0.7s 0.3s ease both;
+  }
+  .stat-item { border-left: 2px solid var(--gold); padding-left: 1rem; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem; font-weight: 700; color: var(--white); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.08em; }
+  .hero-ctas {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+    animation: fadeUp 0.7s 0.4s ease both;
+  }
+  .btn-primary {
+    background: var(--accent); color: var(--white);
+    padding: 0.75rem 1.75rem; border-radius: 6px;
+    text-decoration: none; font-weight: 600; font-size: 0.9rem;
+    transition: all 0.2s; border: none; cursor: pointer;
+  }
+  .btn-primary:hover { background: #1a6de8; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(46,125,247,0.35); }
+  .btn-outline {
+    border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.8);
+    padding: 0.75rem 1.75rem; border-radius: 6px;
+    text-decoration: none; font-weight: 500; font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── SECTIONS ── */
+  section { padding: 5rem 3rem; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700; color: var(--navy); margin-bottom: 2.5rem;
+    position: relative;
+  }
+  .section-title::after {
+    content: ''; display: block; width: 48px; height: 3px;
+    background: var(--gold); margin-top: 0.75rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { background: var(--white); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .about-text p { color: var(--gray); margin-bottom: 1rem; font-size: 0.97rem; line-height: 1.8; }
+  .about-text p strong { color: var(--navy); }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; }
+  .highlight-card {
+    background: var(--light); border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.25rem; border-radius: 6px;
+  }
+  .highlight-card .h-num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); }
+  .highlight-card .h-desc { font-size: 0.82rem; color: var(--gray); margin-top: 2px; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--light); }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+  .skill-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 10px; padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .skill-card:hover { box-shadow: 0 8px 32px rgba(15,31,61,0.1); transform: translateY(-3px); }
+  .skill-card-icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .skill-card h3 { font-size: 0.82rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); margin-bottom: 0.6rem; }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    background: var(--light); border: 1px solid var(--border);
+    font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 4px; color: var(--gray);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── EXPERIENCE ── */
+  #experience { background: var(--white); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before {
+    content: ''; position: absolute; left: 0; top: 8px; bottom: 0;
+    width: 2px; background: linear-gradient(to bottom, var(--accent), var(--border));
+  }
+  .timeline-item { position: relative; margin-bottom: 3rem; }
+  .timeline-dot {
+    position: absolute; left: -2.4rem; top: 6px;
+    width: 14px; height: 14px; border-radius: 50%;
+    background: var(--accent); border: 3px solid var(--white);
+    box-shadow: 0 0 0 2px var(--accent);
+  }
+  .timeline-header { margin-bottom: 0.75rem; }
+  .timeline-company { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); }
+  .timeline-meta { display: flex; gap: 1rem; align-items: center; margin-top: 0.2rem; flex-wrap: wrap; }
+  .timeline-role { font-weight: 600; color: var(--accent); font-size: 0.9rem; }
+  .timeline-dates { font-size: 0.78rem; color: var(--gray); font-family: 'DM Mono', monospace; background: var(--light); padding: 0.2rem 0.6rem; border-radius: 4px; }
+  .project-block { margin-bottom: 1.25rem; }
+  .project-name { font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--navy); margin-bottom: 0.5rem; padding-bottom: 0.35rem; border-bottom: 1px solid var(--border); }
+  .project-bullets { list-style: none; }
+  .project-bullets li { font-size: 0.9rem; color: var(--gray); padding: 0.25rem 0 0.25rem 1.1rem; position: relative; line-height: 1.6; }
+  .project-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.8rem; }
+  .tech-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.6rem; }
+  .tech-chip { font-family: 'DM Mono', monospace; font-size: 0.7rem; background: rgba(46,125,247,0.08); color: var(--accent); border: 1px solid rgba(46,125,247,0.2); padding: 0.15rem 0.55rem; border-radius: 4px; }
+
+  /* ── AWARDS ── */
+  #awards { background: var(--navy); }
+  #awards .section-title { color: var(--white); }
+  #awards .section-label { color: var(--gold); }
+  .awards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+  .award-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid var(--gold);
+    border-radius: 8px; padding: 1.25rem;
+    transition: background 0.2s;
+  }
+  .award-card:hover { background: rgba(255,255,255,0.08); }
+  .award-icon { font-size: 1.4rem; margin-bottom: 0.6rem; }
+  .award-title { font-weight: 600; color: var(--white); font-size: 0.9rem; margin-bottom: 0.25rem; }
+  .award-org { font-size: 0.78rem; color: rgba(255,255,255,0.45); font-family: 'DM Mono', monospace; }
+
+  /* ── PUBLICATIONS ── */
+  #publications { background: var(--light); }
+  .pub-list { display: flex; flex-direction: column; gap: 1rem; }
+  .pub-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: 8px; padding: 1.25rem 1.5rem;
+    display: flex; align-items: center; gap: 1.25rem;
+    text-decoration: none; transition: all 0.2s;
+  }
+  .pub-card:hover { border-color: var(--accent); box-shadow: 0 4px 20px rgba(46,125,247,0.1); transform: translateX(4px); }
+  .pub-icon { width: 40px; height: 40px; border-radius: 8px; background: rgba(46,125,247,0.1); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+  .pub-title { font-weight: 600; color: var(--navy); font-size: 0.92rem; margin-bottom: 0.2rem; }
+  .pub-source { font-size: 0.75rem; color: var(--gray); font-family: 'DM Mono', monospace; }
+  .pub-arrow { margin-left: auto; color: var(--accent); font-size: 1.1rem; flex-shrink: 0; }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--white); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .contact-info p { color: var(--gray); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.5rem; }
+  .contact-links { display: flex; flex-direction: column; gap: 0.75rem; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none; color: var(--text); font-size: 0.9rem;
+    padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); background: rgba(46,125,247,0.04); }
+  .contact-link .cl-icon { font-size: 1.1rem; width: 28px; text-align: center; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,0.4);
+    text-align: center; padding: 1.5rem; font-size: 0.78rem;
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .reveal {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { gap: 1.5rem; }
+    .hero { padding: 80px 1.5rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SC<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#awards">Awards</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-content">
+    <div class="hero-tag">Director of Technology · Morgan Stanley</div>
+    <h1>Shubham<br/><em>Chaurasia</em></h1>
+    <p class="hero-sub">Backend engineer turned AI innovator. Building production-grade AI Agents and MCP systems that redefine how engineering teams interact with enterprise infrastructure.</p>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">8+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">67</div>
+        <div class="stat-label">Apps in AI Agent</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">70%</div>
+        <div class="stat-label">Log Volume Reduced</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">20+</div>
+        <div class="stat-label">Projects Migrated</div>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" class="btn-outline">LinkedIn ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-label">About Me</div>
+    <div class="section-title">The story so far</div>
+    <div class="about-grid reveal">
+      <div class="about-text">
+        <p>Director of Technology at <strong>Morgan Stanley</strong> with 8+ years of backend engineering experience, specialising in Java, Microservices, and high-frequency trading systems.</p>
+        <p>Over the past year, I've been building and deploying <strong>production AI Agents using MCP (Model Context Protocol)</strong> that reduced L2/L3 incident diagnosis time from multi-tool investigation to a single chat query — covering 67 applications firm-wide.</p>
+        <p>I led the <strong>Spring Boot migration across 20+ projects</strong> and delivered an award-winning platform modernisation programme (Morgan Stanley Platform Modernization Award, 2023 & 2025). Subject Matter Expert across 7+ enterprise systems with a track record of zero critical defects in production.</p>
+        <p>Passionate about <strong>System Design, Problem Solving, and Data Structures</strong>. Strong background in mentoring engineers, conducting code reviews, and driving cross-functional delivery.</p>
+      </div>
+      <div class="about-highlights">
+        <div class="highlight-card">
+          <div class="h-num">7+</div>
+          <div class="h-desc">Enterprise projects as Subject Matter Expert</div>
+        </div>
+        <div class="highlight-card">
+          <div class="h-num">20+</div>
+          <div class="h-desc">Spring-to-Spring Boot projects migrated</div>
+        </div>
+        <div class="highlight-card">
+          <div class="h-num">0</div>
+          <div class="h-desc">Critical defects shipped to production across multiple release cycles</div>
+        </div>
+        <div class="highlight-card">
+          <div class="h-num">3</div>
+          <div class="h-desc">Technical publications on HCL Engineering Blog</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-label">Technical Skills</div>
+    <div class="section-title">What I work with</div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <div class="skill-card-icon">☕</div>
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Java 8</span><span class="skill-tag">Java 11</span><span class="skill-tag">Java 17</span><span class="skill-tag">Java 21</span><span class="skill-tag">Kotlin</span><span class="skill-tag">SQL</span><span class="skill-tag">J2EE</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🧩</div>
+        <h3>Frameworks</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Spring Boot</span><span class="skill-tag">Spring MVC</span><span class="skill-tag">Microservices</span><span class="skill-tag">REST APIs</span><span class="skill-tag">JUnit</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🤖</div>
+        <h3>AI & ML</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">AI Agents</span><span class="skill-tag">MCP</span><span class="skill-tag">ACC Agent</span><span class="skill-tag">ACC Skills</span><span class="skill-tag">Genetic Algorithms</span><span class="skill-tag">GitHub Copilot</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">☁️</div>
+        <h3>Cloud & DevOps</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Azure</span><span class="skill-tag">Jenkins</span><span class="skill-tag">Gradle</span><span class="skill-tag">Maven</span><span class="skill-tag">Git</span><span class="skill-tag">CI/CD</span><span class="skill-tag">Autosys</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🗄️</div>
+        <h3>Databases</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">DB2</span><span class="skill-tag">PostgreSQL</span><span class="skill-tag">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-icon">🛠️</div>
+        <h3>Tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Jira</span><span class="skill-tag">Postman</span><span class="skill-tag">SonarLint</span><span class="skill-tag">JMeter</span><span class="skill-tag">Splunk</span><span class="skill-tag">Grafana</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="container">
+    <div class="section-label">Professional Experience</div>
+    <div class="section-title">Where I've worked</div>
+    <div class="timeline reveal">
+
+      <!-- Morgan Stanley -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div class="timeline-company">Morgan Stanley</div>
+          <div class="timeline-meta">
+            <span class="timeline-role">Director – Technology</span>
+            <span class="timeline-dates">May 2021 – Present · Bengaluru, India</span>
+          </div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">AI & Innovation — AI Agent & MCP Development (2024–Present)</div>
+          <ul class="project-bullets">
+            <li>Built and deployed production AI Agents using MCP (Model Context Protocol), enabling tool-augmented, LLM-driven workflows that interact directly with live Morgan Stanley enterprise systems.</li>
+            <li>Engineered a unified observability AI Agent integrating Splunk, Grafana, Usage DB, entitlement systems, and DB health checks into a single conversational interface — covering logging across 67 applications and reducing L2/L3 incident diagnosis from multi-tool investigation to a single chat query.</li>
+            <li>Developed a natural language log-query AI Agent (ACC Agent) that accepts plain-English queries against live production logs, eliminating manual grep-based workflows and cutting incident diagnosis time for on-call engineers.</li>
+            <li>Built an ACC Skill that autonomously reads 12 months of production logs, identifies noise patterns, and generates code improvements — reducing total log volume by 70% and eliminating redundant log lines.</li>
+            <li>Developed a Moderne recipe to map upstream and downstream dependencies for any application and published it to the Morgan Stanley internal Marketplace, enabling self-serve architecture discovery firm-wide.</li>
+          </ul>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Project: Matrix — Tab Provider (SME)</div>
+          <ul class="project-bullets">
+            <li>Served as SME for Tab Provider on Matrix — Morgan Stanley's high-frequency, real-time trading platform processing mission-critical financial transactions at scale.</li>
+            <li>Eliminated a class of production failures by decoupling tightly-coupled Tab Provider dependencies, reducing fault propagation across downstream trading services.</li>
+            <li>Reviewed 100% of Tab Provider code commits, maintaining zero critical defects shipped to production over multiple release cycles.</li>
+          </ul>
+          <div class="tech-chips"><span class="tech-chip">Java 17</span><span class="tech-chip">REST API</span><span class="tech-chip">DB2</span><span class="tech-chip">Gradle</span><span class="tech-chip">Load Balancer</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Project: Optimizer — Conference Scheduling (SME & Architect)</div>
+          <ul class="project-bullets">
+            <li>Architected a conference scheduling optimisation platform from scratch, replacing a fully manual process used across Morgan Stanley's global conference operations.</li>
+            <li>Engineered a Genetic Algorithm engine that generates constraint-satisfying schedules across hundreds of attendees — reducing scheduling time from days to minutes.</li>
+            <li>Integrated Cvent API to automate bulk appointment creation post-optimisation, eliminating manual data entry for conference coordinators.</li>
+          </ul>
+          <div class="tech-chips"><span class="tech-chip">Java 8</span><span class="tech-chip">Kotlin</span><span class="tech-chip">PostgreSQL</span><span class="tech-chip">Gradle</span><span class="tech-chip">Cvent API</span></div>
+        </div>
+
+        <div class="project-block">
+          <div class="project-name">Spring Migration & Platform Modernization</div>
+          <ul class="project-bullets">
+            <li>Led Spring-to-Spring Boot migration across 20+ projects, standardising the backend stack and eliminating legacy framework dependencies that blocked feature velocity.</li>
+            <li>Introduced Gradle build pipelines and CI/CD standards across all migrated projects, reducing build times and enabling consistent automated deployments.</li>
+            <li>Awarded the Morgan Stanley Platform Modernization Award 2023 & 2025.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- HCL -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div class="timeline-company">HCL Software</div>
+          <div class="timeline-meta">
+            <span class="timeline-role">Developer</span>
+            <span class="timeline-dates">May 2020 – March 2021 · Bengaluru, India</span>
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="project-name">Project: Workload Automation</div>
+          <ul class="project-bullets">
+            <li>Engineered 3 production integration plugins (Automation Anywhere, Blue Prism, Azure Resource Manager) for HCL's Workload Automation platform — used by over 1 million users across enterprise clients globally.</li>
+            <li>Extended the WA plugin ecosystem to support RPA orchestration and Azure job control, enabling clients to unify third-party automation under a single scheduling platform.</li>
+            <li>Authored 3 technical publications on HCL's engineering blog documenting plugin architecture and integration patterns.</li>
+          </ul>
+          <div class="tech-chips"><span class="tech-chip">Java 8</span><span class="tech-chip">REST API</span><span class="tech-chip">DB2</span><span class="tech-chip">Maven</span><span class="tech-chip">SVN</span></div>
+        </div>
+      </div>
+
+      <!-- Infosys -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-header">
+          <div class="timeline-company">Infosys <span style="font-weight:400;font-size:0.95rem;color:var(--gray)">(Client: Goldman Sachs)</span></div>
+          <div class="timeline-meta">
+            <span class="timeline-role">Senior Systems Engineer</span>
+            <span class="timeline-dates">November 2017 – May 2020 · Bengaluru, India</span>
+          </div>
+        </div>
+        <div class="project-block">
+          <div class="project-name">Project: Navigator</div>
+          <ul class="project-bullets">
+            <li>Delivered features on Navigator — Goldman Sachs' internal audit project management platform handling employee allocation, risk band tracking, and multi-tier approval workflows.</li>
+            <li>Implemented an in-memory caching layer for frequently accessed project data, reducing database load and improving page response times for audit managers.</li>
+            <li>Integrated Camunda BPMN engine to automate approval lifecycle management, replacing a manual email-based process.</li>
+          </ul>
+          <div class="tech-chips"><span class="tech-chip">Java 8</span><span class="tech-chip">AngularJS</span><span class="tech-chip">DB2</span><span class="tech-chip">Camunda</span><span class="tech-chip">Maven</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="container">
+    <div class="section-label">Recognition</div>
+    <div class="section-title">Awards</div>
+    <div class="awards-grid reveal">
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-title">Platform Modernization Award</div>
+        <div class="award-org">Morgan Stanley · 2025</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🏆</div>
+        <div class="award-title">Platform Modernization Award</div>
+        <div class="award-org">Morgan Stanley · 2023</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🌟</div>
+        <div class="award-title">Culture Award</div>
+        <div class="award-org">Morgan Stanley · 2022</div>
+      </div>
+      <div class="award-card">
+        <div class="award-icon">🥇</div>
+        <div class="award-title">1st Place – Quizzical Technovanza</div>
+        <div class="award-org">DIT University</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="container">
+    <div class="section-label">Thought Leadership</div>
+    <div class="section-title">Publications</div>
+    <div class="pub-list reveal">
+      <a class="pub-card" href="https://blog.hcltechsw.com/workload-automation/manage-your-blue-prism-process-by-using-blue-prism-plugin-with-workload-automation/" target="_blank">
+        <div class="pub-icon">📝</div>
+        <div>
+          <div class="pub-title">Manage Your Blue Prism Process by using Blue Prism Plugin with Workload Automation</div>
+          <div class="pub-source">HCL Tech Blog · Workload Automation</div>
+        </div>
+        <div class="pub-arrow">↗</div>
+      </a>
+      <a class="pub-card" href="https://blog.hcltechsw.com/workload-automation/manage-your-azure-resource-by-using-azure-resource-manager-with-workload-automation/" target="_blank">
+        <div class="pub-icon">📝</div>
+        <div>
+          <div class="pub-title">Manage your Azure Resource by using Azure Resource Manager with Workload Automation</div>
+          <div class="pub-source">HCL Tech Blog · Workload Automation</div>
+        </div>
+        <div class="pub-arrow">↗</div>
+      </a>
+      <a class="pub-card" href="https://blog.hcltechsw.com/workload-automation/manage-your-automation-by-using-automation-anywhere-bot-runner-and-trader-plugin-with-workload-automation/" target="_blank">
+        <div class="pub-icon">📝</div>
+        <div>
+          <div class="pub-title">Manage your Automation by using "Automation Anywhere Bot Runner" and "Trader Plugin" with Workload Automation</div>
+          <div class="pub-source">HCL Tech Blog · Workload Automation</div>
+        </div>
+        <div class="pub-arrow">↗</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-title">Contact</div>
+    <div class="contact-grid reveal">
+      <div class="contact-info">
+        <p>Based in Bengaluru, India. Open to conversations about backend architecture, AI agent development, and engineering leadership.</p>
+        <p>Feel free to reach out via email or LinkedIn.</p>
+      </div>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:shubhamchaurasia315@gmail.com">
+          <span class="cl-icon">✉️</span> shubhamchaurasia315@gmail.com
+        </a>
+        <a class="contact-link" href="tel:+919808247677">
+          <span class="cl-icon">📞</span> +91-9808247677
+        </a>
+        <a class="contact-link" href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank">
+          <span class="cl-icon">💼</span> linkedin.com/in/shubham-chaurasia-1a78b8a9
+        </a>
+        <a class="contact-link" href="https://sites.google.com/view/shubhamchaurasia/home" target="_blank">
+          <span class="cl-icon">🌐</span> sites.google.com/view/shubhamchaurasia
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  © 2026 Shubham Chaurasia · Director of Technology · Morgan Stanley
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
