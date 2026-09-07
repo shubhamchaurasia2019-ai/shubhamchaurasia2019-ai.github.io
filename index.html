@@ -3,37 +3,33 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shubham Chaurasia — Director of Technology & AI Systems Architect</title>
-
-  <!-- Prevent white flash immediately -->
-  <style>
-    html, body { background: #000000 !important; color: #ffffff; }
-  </style>
+  <title>Shubham Chaurasia — Director of Technology & Principal Backend Engineer</title>
+  
+  <meta name="description" content="Director of Technology and Principal Backend Engineer with 8+ years experience in high-frequency trading systems, distributed architectures, and autonomous AI agents.">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E">
 
-  <!-- Google Fonts: Inter + Instrument Serif + JetBrains Mono -->
+  <!-- Google Fonts: Inter + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #000000;
-      --surface: rgba(18, 18, 20, 0.7);
-      --surface-hover: rgba(28, 28, 34, 0.85);
-      --border: rgba(255, 255, 255, 0.12);
-      --border-bright: rgba(255, 255, 255, 0.28);
-      --accent: #00f0ff;
-      --accent-glow: rgba(0, 240, 255, 0.25);
-      --purple-glow: rgba(138, 75, 255, 0.2);
-      --text: #ffffff;
-      --text-muted: #8e8e99;
-      --text-dim: #5a5a66;
-
-      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-      --font-serif: 'Instrument Serif', Georgia, serif;
+      --bg: #09090b;
+      --bg-card: rgba(18, 18, 23, 0.7);
+      --bg-card-hover: rgba(24, 24, 31, 0.9);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.2);
+      --text: #f4f4f5;
+      --text-muted: #a1a1aa;
+      --text-dim: #71717a;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.12);
+      --emerald: #10b981;
+      --emerald-soft: rgba(16, 185, 129, 0.12);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
 
@@ -45,1450 +41,1000 @@
 
     html {
       scroll-behavior: smooth;
-      background: #000000;
+      background: var(--bg);
     }
 
     body {
-      background: #000000;
-      color: #ffffff;
+      background: var(--bg);
+      color: var(--text);
       font-family: var(--font-sans);
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
-      line-height: 1.6;
       position: relative;
     }
 
-    /* Ambient Cursor Spotlight */
-    #cursor-glow {
-      position: fixed;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.04) 0%, rgba(138, 75, 255, 0.02) 40%, transparent 70%);
-      pointer-events: none;
-      z-index: 2;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.5s ease;
-    }
-
-    /* Background Interactive Constellation Canvas */
-    #network-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 1;
-      pointer-events: none;
-      opacity: 0.65;
-    }
-
-    /* Grain Film Texture */
-    .grain {
+    /* Subtle Architectural Background Glows */
+    .bg-ambient {
       position: fixed;
       inset: 0;
-      z-index: 99;
       pointer-events: none;
-      opacity: 0.03;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      z-index: 0;
+      overflow: hidden;
+    }
+    .bg-ambient::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.07) 0%, rgba(99, 102, 241, 0.03) 40%, transparent 70%);
+    }
+    .bg-ambient::after {
+      content: "";
+      position: absolute;
+      bottom: 10%;
+      right: -10%;
+      width: 800px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.04) 0%, transparent 70%);
     }
 
-    /* Global Navigation */
-    header.header {
+    /* Top Global Header */
+    header.site-header {
       position: sticky;
       top: 0;
-      z-index: 80;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(9, 9, 11, 0.75);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 48px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      background: rgba(0, 0, 0, 0.65);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
     }
-
     .brand {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       gap: 12px;
       text-decoration: none;
-      color: #fff;
+      color: inherit;
     }
-
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: linear-gradient(135deg, #1c1c20, #0a0a0c);
+    .brand-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #27272a, #18181b);
       border: 1px solid var(--border);
       display: grid;
       place-items: center;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
-    }
-
-    .brand-name {
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 600;
-      letter-spacing: -0.02em;
+      color: #fff;
     }
-
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #fff;
+    }
     .brand-title {
-      font-size: 11.5px;
+      font-size: 11px;
+      color: var(--text-dim);
       font-family: var(--font-mono);
-      color: var(--text-muted);
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
-      padding-left: 10px;
-      margin-left: 2px;
     }
 
-    /* Liquid-Metal Navigation Pills */
-    nav.nav-pills {
+    nav.nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 24px;
     }
-
-    nav.nav-pills a {
-      height: 38px;
-      padding: 0 18px;
-      border-radius: 8px;
+    nav.nav-links a {
       font-size: 13.5px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      color: #dedee6;
+      color: var(--text-muted);
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: linear-gradient(105deg, rgba(14,14,18,0.8) 0%, rgba(30,30,38,0.6) 100%);
-      transition: all 0.35s ease;
+      transition: color 0.2s ease;
     }
-
-    nav.nav-pills a::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.18) 50%, transparent 70%);
-      transform: translateX(-120%);
-      transition: transform 0.6s ease;
-    }
-
-    nav.nav-pills a:hover {
-      border-color: rgba(255, 255, 255, 0.4);
+    nav.nav-links a:hover {
       color: #fff;
-      box-shadow: 0 0 16px rgba(0, 240, 255, 0.15);
     }
 
-    nav.nav-pills a:hover::before {
-      transform: translateX(120%);
-    }
-
-    .nav-actions {
+    .header-actions {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
-    .btn-action {
-      height: 38px;
-      padding: 0 18px;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-      text-decoration: none;
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      gap: 8px;
+      height: 36px;
+      padding: 0 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
       cursor: pointer;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s ease;
     }
-
-    .btn-solid {
+    .btn-primary {
       background: #ffffff;
       color: #000000;
       border: 1px solid #ffffff;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
-
-    .btn-solid:hover {
-      background: #e6e9f5;
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.35);
+    .btn-primary:hover {
+      background: #e4e4e7;
       transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
     }
-
-    .btn-ghost {
-      background: rgba(255, 255, 255, 0.05);
-      color: #ffffff;
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
       border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--border-hover);
+      color: #fff;
     }
 
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--border-bright);
-      box-shadow: 0 0 16px rgba(255, 255, 255, 0.1);
+    /* Container Wrapper */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
     }
 
     /* Hero Section */
     section.hero {
-      position: relative;
-      z-index: 10;
-      min-height: calc(100vh - 75px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 60px 24px 80px;
-      max-width: 1080px;
-      margin: 0 auto;
+      padding: 90px 0 70px;
     }
-
-    /* Live Operational Status Badge */
-    .status-badge {
+    .badge-status {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      padding: 6px 14px;
-      border-radius: 30px;
-      background: rgba(14, 14, 18, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
       font-size: 12px;
-      font-family: var(--font-mono);
-      color: #b0b0be;
-      margin-bottom: 28px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #00ff88;
-      box-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
-      animation: pulse-dot 2s infinite ease-in-out;
-    }
-
-    @keyframes pulse-dot {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.4; transform: scale(0.8); }
-    }
-
-    h1.hero-title {
-      font-size: clamp(38px, 6vw, 72px);
-      font-weight: 500;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin-bottom: 24px;
-      color: #ffffff;
-      max-width: 960px;
-    }
-
-    h1.hero-title em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: #9a9a9a;
-      font-weight: 400;
-      padding: 0 4px;
-    }
-
-    p.hero-lede {
-      font-size: clamp(16px, 1.8vw, 19px);
       color: var(--text-muted);
-      max-width: 680px;
+      margin-bottom: 28px;
+      font-family: var(--font-mono);
+    }
+    .dot-pulse {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--emerald);
+      box-shadow: 0 0 8px var(--emerald);
+    }
+
+    h1.hero-heading {
+      font-size: clamp(38px, 5.5vw, 64px);
+      font-weight: 600;
+      letter-spacing: -0.035em;
+      line-height: 1.12;
+      color: #ffffff;
+      max-width: 900px;
+      margin-bottom: 24px;
+    }
+    .hero-heading span.gradient-text {
+      background: linear-gradient(180deg, #ffffff 40%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--text-muted);
+      max-width: 720px;
       line-height: 1.6;
       margin-bottom: 36px;
       font-weight: 350;
     }
 
-    .hero-cta-group {
+    .hero-buttons {
       display: flex;
-      align-items: center;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 50px;
+      margin-bottom: 64px;
     }
-
-    .hero-cta-group .btn-action {
-      height: 44px;
-      padding: 0 24px;
+    .hero-buttons .btn {
+      height: 42px;
+      padding: 0 20px;
       font-size: 14px;
     }
 
-    /* Metrics Ribbon */
-    .metrics-bar {
+    /* Executive Metrics Strip */
+    .metrics-strip {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      width: 100%;
-      max-width: 920px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03), rgba(12, 12, 16, 0.6));
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      border-radius: 12px;
+      overflow: hidden;
     }
-
-    .metric-item {
+    .metric-box {
+      background: rgba(14, 14, 18, 0.85);
+      padding: 24px 20px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
     }
-
-    .metric-item:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: -10px;
-      top: 15%;
-      height: 70%;
-      width: 1px;
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .metric-num {
-      font-size: clamp(28px, 3.5vw, 42px);
+    .metric-value {
+      font-size: 32px;
       font-weight: 600;
-      font-family: var(--font-sans);
-      letter-spacing: -0.03em;
       color: #ffffff;
-      line-height: 1;
-      margin-bottom: 6px;
-      background: linear-gradient(180deg, #ffffff 40%, #888899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
     }
-
-    .metric-label {
+    .metric-desc {
       font-size: 12.5px;
-      color: var(--text-muted);
+      color: var(--text-dim);
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.05em;
     }
 
-    /* Live Interactive Architecture Terminal */
-    .terminal-section {
-      position: relative;
-      z-index: 10;
-      max-width: 1080px;
-      margin: 40px auto 100px;
-      padding: 0 24px;
+    /* Section Headings */
+    .section-head {
+      margin-bottom: 40px;
     }
-
-    .terminal-window {
-      background: rgba(8, 8, 12, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 35px rgba(0, 240, 255, 0.05);
-      backdrop-filter: blur(20px);
-    }
-
-    .terminal-bar {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 18px;
-      background: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-    }
-
-    .terminal-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .t-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .t-red { background: #ff5f56; }
-    .t-yellow { background: #ffbd2e; }
-    .t-green { background: #27c93f; }
-
-    .terminal-title {
-      font-family: var(--font-mono);
+    .section-eyebrow {
       font-size: 12px;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
-    }
-
-    .terminal-prompt-pills {
-      display: flex;
-      gap: 8px;
-    }
-
-    .pill-cmd {
-      padding: 3px 10px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-      font-size: 11px;
       font-family: var(--font-mono);
-      color: #00f0ff;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-
-    .pill-cmd:hover {
-      background: rgba(0, 240, 255, 0.15);
-      border-color: #00f0ff;
-      color: #ffffff;
-    }
-
-    .terminal-body {
-      padding: 24px;
-      font-family: var(--font-mono);
-      font-size: 13.5px;
-      line-height: 1.7;
-      color: #cfd0e0;
-      min-height: 200px;
-    }
-
-    .terminal-line {
-      margin-bottom: 8px;
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-    }
-
-    .t-prefix {
-      color: #00ff88;
-      user-select: none;
-    }
-
-    .t-cmd {
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    .t-output {
-      color: #8e8e99;
-      margin-left: 18px;
-      margin-bottom: 12px;
-      white-space: pre-wrap;
-    }
-
-    .t-highlight {
-      color: #00f0ff;
-    }
-
-    .cursor-blink {
-      display: inline-block;
-      width: 8px;
-      height: 15px;
-      background: #00ff88;
-      vertical-align: middle;
-      animation: blink 1s step-end infinite;
-      margin-left: 4px;
-    }
-
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-
-    /* Section Styling */
-    section.content-section {
-      position: relative;
-      z-index: 10;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 80px 24px;
-    }
-
-    .section-tag {
-      font-family: var(--font-mono);
-      font-size: 12px;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.1em;
       color: var(--accent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       display: block;
     }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 40px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      padding-bottom: 24px;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
     .section-title {
-      font-size: clamp(28px, 4vw, 42px);
-      font-weight: 500;
+      font-size: 32px;
+      font-weight: 600;
       letter-spacing: -0.03em;
       color: #ffffff;
     }
-
-    .section-title em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: #9a9a9a;
-      padding-left: 4px;
-    }
-
-    /* Filter Tabs for Works */
-    .filter-tabs {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .tab-btn {
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: 12.5px;
-      font-family: var(--font-mono);
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border);
+    .section-description {
+      font-size: 15px;
       color: var(--text-muted);
-      cursor: pointer;
-      transition: all 0.25s ease;
+      margin-top: 8px;
+      max-width: 600px;
     }
 
-    .tab-btn.active, .tab-btn:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.35);
-      color: #ffffff;
+    /* Bento Grid for Engineering & AI Works */
+    section.work-section {
+      padding: 60px 0;
     }
-
-    /* 3D Motion Project Cards */
-    .cards-grid {
+    .bento-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 20px;
     }
-
-    .motion-card {
-      position: relative;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(12, 12, 16, 0.8) 100%);
+    .bento-card {
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 16px;
       padding: 32px;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-      transform-style: preserve-3d;
-      will-change: transform;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
     }
-
-    .motion-card:hover {
-      border-color: rgba(0, 240, 255, 0.4);
-      box-shadow: 0 14px 40px -10px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 240, 255, 0.12);
+    .bento-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.7);
     }
+    .bento-card.col-8 { grid-column: span 8; }
+    .bento-card.col-4 { grid-column: span 4; }
+    .bento-card.col-6 { grid-column: span 6; }
+    .bento-card.col-12 { grid-column: span 12; }
 
-    .card-top {
+    .card-meta {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
+      align-items: center;
       margin-bottom: 20px;
     }
-
-    .card-badge {
+    .tag {
       font-size: 11px;
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.06em;
       padding: 4px 10px;
-      border-radius: 4px;
-      background: rgba(0, 240, 255, 0.08);
-      border: 1px solid rgba(0, 240, 255, 0.25);
-      color: #00f0ff;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
     }
-
-    .card-h3 {
+    .tag.highlight {
+      background: var(--accent-soft);
+      color: #60a5fa;
+      border-color: rgba(59, 130, 246, 0.25);
+    }
+    .card-title {
       font-size: 22px;
       font-weight: 600;
       letter-spacing: -0.02em;
       color: #ffffff;
       margin-bottom: 12px;
     }
-
-    .card-body {
+    .card-text {
       font-size: 14.5px;
       color: var(--text-muted);
-      line-height: 1.65;
+      line-height: 1.6;
       margin-bottom: 24px;
     }
-
-    .card-impact {
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-      color: #00ff88;
-      margin-bottom: 20px;
-      display: flex;
+    .card-stats-pill {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: var(--emerald-soft);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      color: var(--emerald);
+      font-size: 12.5px;
+      font-family: var(--font-mono);
+      font-weight: 500;
+      margin-bottom: 24px;
     }
-
-    .card-impact::before {
-      content: "↳";
-      font-weight: bold;
-    }
-
-    .tech-tags {
+    .tech-stack {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-top: auto;
     }
-
-    .tag-chip {
+    .tech-pill {
       font-size: 11.5px;
       font-family: var(--font-mono);
-      padding: 3px 9px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 3px 8px;
       border-radius: 4px;
-      color: #b4b4c4;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      color: var(--text-dim);
     }
 
-    /* Experience Timeline */
-    .timeline-wrap {
+    /* Experience Timeline Section */
+    section.experience-section {
+      padding: 60px 0;
+    }
+    .timeline {
       display: flex;
       flex-direction: column;
-      gap: 28px;
+      gap: 20px;
     }
-
     .timeline-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(10, 10, 14, 0.7));
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 36px;
-      backdrop-filter: blur(14px);
-      transition: all 0.3s ease;
+      border-radius: 16px;
+      padding: 32px;
+      transition: border-color 0.2s ease;
     }
-
     .timeline-card:hover {
-      border-color: rgba(255, 255, 255, 0.25);
+      border-color: var(--border-hover);
     }
-
-    .timeline-top {
+    .timeline-header {
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 4px;
+      align-items: flex-start;
+      margin-bottom: 12px;
       flex-wrap: wrap;
       gap: 8px;
     }
-
-    .role-title {
-      font-size: 22px;
+    .timeline-role {
+      font-size: 20px;
       font-weight: 600;
-      color: #ffffff;
-      letter-spacing: -0.02em;
+      color: #fff;
     }
-
-    .tenure {
+    .timeline-company {
+      font-size: 14.5px;
+      color: #60a5fa;
+      font-weight: 500;
+    }
+    .timeline-period {
       font-size: 13px;
       font-family: var(--font-mono);
-      color: var(--text-muted);
+      color: var(--text-dim);
     }
-
-    .company-name {
-      font-size: 15px;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-
-    .timeline-list {
+    .timeline-desc {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
+      margin-top: 16px;
     }
-
-    .timeline-list li {
+    .timeline-desc li {
       position: relative;
       padding-left: 20px;
       font-size: 14.5px;
-      color: #c4c4d0;
+      color: var(--text-muted);
       line-height: 1.6;
     }
-
-    .timeline-list li::before {
-      content: "▸";
+    .timeline-desc li::before {
+      content: "";
       position: absolute;
       left: 0;
-      color: var(--accent);
+      top: 9px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--text-dim);
     }
 
-    /* Skills Grid */
-    .skills-quad {
+    /* Core Capabilities Matrix */
+    section.skills-section {
+      padding: 60px 0;
+    }
+    .matrix-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-
-    .skill-block {
-      background: rgba(18, 18, 22, 0.6);
+    .matrix-card {
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 14px;
+      padding: 28px;
     }
-
-    .skill-block h4 {
-      font-family: var(--font-mono);
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .matrix-card h3 {
+      font-size: 16px;
+      font-weight: 600;
       color: #ffffff;
       margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-
-    .skill-block h4::before {
-      content: "";
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .skill-block ul {
+    .matrix-card ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-
-    .skill-block li {
-      font-size: 14px;
-      color: var(--text-muted);
+    .matrix-card li {
       display: flex;
       justify-content: space-between;
-    }
-
-    /* Floating Dock Footer */
-    footer.dock-footer {
-      position: relative;
-      z-index: 20;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      padding: 80px 24px 60px;
-      text-align: center;
-      background: #000000;
-    }
-
-    .dock-content {
-      max-width: 680px;
-      margin: 0 auto;
-    }
-
-    .dock-title {
-      font-size: clamp(32px, 4vw, 48px);
-      font-weight: 500;
-      letter-spacing: -0.03em;
-      margin-bottom: 14px;
-    }
-
-    .dock-title em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: #9a9a9a;
-    }
-
-    .dock-sub {
-      color: var(--text-muted);
-      font-size: 16px;
-      margin-bottom: 36px;
-    }
-
-    .dock-bar {
-      display: inline-flex;
       align-items: center;
-      gap: 14px;
-      padding: 10px 18px;
-      border-radius: 40px;
-      background: rgba(20, 20, 28, 0.8);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 240, 255, 0.08);
-      backdrop-filter: blur(20px);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .dock-btn {
-      padding: 10px 20px;
-      border-radius: 25px;
       font-size: 13.5px;
+      color: var(--text-muted);
+    }
+    .level {
+      font-size: 11.5px;
       font-family: var(--font-mono);
-      color: #ffffff;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s ease;
+      color: var(--text-dim);
     }
 
-    .dock-btn-main {
-      background: #ffffff;
-      color: #000000;
+    /* Recognition Section */
+    section.awards-section {
+      padding: 60px 0;
+    }
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .award-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+    }
+    .award-year {
+      font-size: 12px;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .award-title {
+      font-size: 17px;
       font-weight: 600;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .award-org {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
     }
 
-    .dock-btn-main:hover {
-      background: #e6e9f5;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
+    /* Minimalist Executive Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border);
+      padding: 80px 0 60px;
+      margin-top: 60px;
+      background: rgba(10, 10, 14, 0.8);
+    }
+    .footer-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+    .footer-left h2 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+    .footer-left p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      max-width: 440px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 32px;
+    }
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .footer-col-title {
+      font-size: 11px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+    }
+    .footer-col a {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-col a:hover {
+      color: #fff;
+    }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 12.5px;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .dock-btn-sub {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .dock-btn-sub:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    /* Mobile Menu */
-    .burger {
-      display: none;
-    }
-
-    @media (max-width: 900px) {
-      header.header {
-        padding: 16px 20px;
+    /* Responsive */
+    @media (max-width: 960px) {
+      .bento-card.col-8, .bento-card.col-4, .bento-card.col-6 {
+        grid-column: span 12;
       }
-      nav.nav-pills {
-        display: none;
+      .metrics-strip {
+        grid-template-columns: repeat(2, 1fr);
       }
-      .burger {
-        display: grid;
-        place-items: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid var(--border);
-        cursor: pointer;
-      }
-      .burger span {
-        display: block;
-        width: 18px;
-        height: 1.5px;
-        background: #fff;
-        margin: 2.5px 0;
-      }
-      .metrics-bar {
+      .matrix-grid, .awards-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
       }
-      .metric-item:not(:last-child)::after {
+      nav.nav-links {
         display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .metrics-strip {
+        grid-template-columns: 1fr;
+      }
+      section.hero {
+        padding: 60px 0 40px;
+      }
+      .bento-card {
+        padding: 24px;
       }
     }
   </style>
 </head>
-<body style="background:#000;color:#fff">
+<body>
 
-  <!-- Grain texture overlay -->
-  <div class="grain"></div>
+  <!-- Ambient Backdrop -->
+  <div class="bg-ambient"></div>
 
-  <!-- Interactive Cursor Spotlight -->
-  <div id="cursor-glow"></div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#home" class="brand">
+        <div class="brand-avatar">SC</div>
+        <div class="brand-info">
+          <span class="brand-name">Shubham Chaurasia</span>
+          <span class="brand-title">Director of Technology</span>
+        </div>
+      </a>
 
-  <!-- Interactive Neural Constellation Background -->
-  <canvas id="network-canvas"></canvas>
+      <nav class="nav-links">
+        <a href="#work">Systems & AI</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Capabilities</a>
+        <a href="#awards">Recognition</a>
+      </nav>
 
-  <!-- Navigation Header -->
-  <header class="header">
-    <a href="#home" class="brand">
-      <div class="brand-mark">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff">
-          <g transform="rotate(-30 12 12)">
-            <circle cx="7.3" cy="3.2" r="1.45" />
-            <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" />
-            <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" />
-            <circle cx="16.7" cy="20.8" r="1.45" />
-          </g>
-        </svg>
+      <div class="header-actions">
+        <a href="mailto:shubhamchaurasia315@gmail.com" class="btn btn-primary">Contact</a>
+        <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn ↗</a>
       </div>
-      <div>
-        <span class="brand-name">Shubham Chaurasia</span>
-        <span class="brand-title">Director of Technology</span>
-      </div>
-    </a>
-
-    <nav class="nav-pills">
-      <a href="#work">Featured Systems</a>
-      <a href="#terminal">Architecture Console</a>
-      <a href="#experience">Career Timeline</a>
-      <a href="#skills">Stack & Mastery</a>
-    </nav>
-
-    <div class="nav-actions">
-      <a href="mailto:shubhamchaurasia315@gmail.com" class="btn-action btn-solid">Let's Connect</a>
-      <button class="burger" id="burger-btn" aria-label="Toggle Navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="status-badge">
-      <span class="status-dot"></span>
-      <span>SYSTEM STATUS: LEADING AI & BACKEND INNOVATION @ MORGAN STANLEY</span>
-    </div>
-
-    <h1 class="hero-title">
-      Architecting <em>AI agents</em> & high-throughput systems at scale.
-    </h1>
-
-    <p class="hero-lede">
-      Director of Technology with 8+ years engineering mission-critical trading engines, enterprise Model Context Protocol (MCP) integrations, and developer productivity tooling across 200+ repositories.
-    </p>
-
-    <div class="hero-cta-group">
-      <a href="#work" class="btn-action btn-solid">Explore Systems & Work ↓</a>
-      <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="btn-action btn-ghost">LinkedIn Profile ↗</a>
-      <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="btn-action btn-ghost">GitHub ↗</a>
-    </div>
-
-    <!-- Live Quantified Metrics Ribbon -->
-    <div class="metrics-bar">
-      <div class="metric-item">
-        <span class="metric-num" data-target="200">200+</span>
-        <span class="metric-label">Repositories in Matrix Lens</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-num" data-target="70">70%</span>
-        <span class="metric-label">Log Volume Reduction via AI</span>
-      </div>
-      <div class="metric-item">
-        <span class="metric-num" data-target="200">200+</span>
-        <span class="metric-label">Active Engineers on Tools</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Interactive Terminal / Architecture Console -->
-  <section class="terminal-section" id="terminal">
-    <div class="terminal-window">
-      <div class="terminal-bar">
-        <div class="terminal-dots">
-          <div class="t-dot t-red"></div>
-          <div class="t-dot t-yellow"></div>
-          <div class="t-dot t-green"></div>
-        </div>
-        <div class="terminal-title">shubham@matrix-cluster: ~/systems-observability</div>
-        <div class="terminal-prompt-pills">
-          <span class="pill-cmd" data-cmd="matrix-lens">pb-matrix-lens</span>
-          <span class="pill-cmd" data-cmd="acc-agent">acc-agent</span>
-          <span class="pill-cmd" data-cmd="api-garage">api-garage</span>
-          <span class="pill-cmd" data-cmd="clear">clear</span>
-        </div>
-      </div>
-      <div class="terminal-body" id="term-output">
-        <div class="terminal-line">
-          <span class="t-prefix">shubham@cluster:~$</span>
-          <span class="t-cmd">pb-matrix-lens --status</span>
-        </div>
-        <div class="t-output">[OK] Initialized Matrix Lens Agent Engine across 200+ repositories.
-[INDEX] Ingested project historical incident graph, runbooks, and microservices architecture.
-[INTEGRATIONS] Active bindings: Copilot Spaces (Browser) + Claude Code / Codex CLI plugins.
-[TRIAGE] L2 support query latency reduced from 35m to <1.2s.</div>
-
-        <div class="terminal-line">
-          <span class="t-prefix">shubham@cluster:~$</span>
-          <span class="t-cmd">acc-agent --metrics --target=logging</span>
-        </div>
-        <div class="t-output">[MCP] Connected to Morgan Stanley Enterprise Splunk & Grafana.
-[AUTONOMOUS SCAN] Parsed 12 months of live logs across 67 microservices.
-[OPTIMIZATION] Generated Moderne refactor recipes. Total log volume reduced by 70%.</div>
-
-        <div class="terminal-line" id="term-active-line">
-          <span class="t-prefix">shubham@cluster:~$</span>
-          <span class="t-cmd" id="term-typing"></span><span class="cursor-blink"></span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Featured Works (Motion Cards) -->
-  <section class="content-section" id="work">
-    <span class="section-tag">// 01. Engineered Systems</span>
-    <div class="section-head">
-      <h2 class="section-title">Production Work & <em>AI Platforms</em></h2>
-      <div class="filter-tabs">
-        <button class="tab-btn active" data-filter="all">All Systems</button>
-        <button class="tab-btn" data-filter="ai">AI & MCP</button>
-        <button class="tab-btn" data-filter="core">Trading Core</button>
-        <button class="tab-btn" data-filter="tools">Developer Tools</button>
-      </div>
-    </div>
-
-    <div class="cards-grid">
-      <!-- Card 1: PB Matrix Lens -->
-      <div class="motion-card" data-category="ai">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">Autonomous AI KB</span>
-          </div>
-          <h3 class="card-h3">PB Matrix Lens</h3>
-          <p class="card-body">
-            AI Assistant and enterprise knowledge base indexing 200+ repositories. Powering L2 incident resolution with real-time root cause analysis, application flow generation, and native integration into Copilot Spaces and Claude Code.
-          </p>
-          <div class="card-impact">Instant automated diagnosis for 200+ microservices</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">LLM Workflows</span>
-          <span class="tag-chip">Claude Code Plugin</span>
-          <span class="tag-chip">Copilot Spaces</span>
-          <span class="tag-chip">Incident Triage</span>
-        </div>
+  <!-- Hero -->
+  <div class="container">
+    <section class="hero" id="home">
+      <div class="badge-status">
+        <span class="dot-pulse"></span>
+        <span>Director of Technology @ Morgan Stanley • Bengaluru, India</span>
       </div>
 
-      <!-- Card 2: API Garage -->
-      <div class="motion-card" data-category="tools">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">Developer Tooling</span>
-          </div>
-          <h3 class="card-h3">API Garage (RestClient)</h3>
-          <p class="card-body">
-            High-performance Chrome side-panel combining Postman-style API testing and JMeter load-simulation directly inside the browser. Widely adopted internally with 200+ active engineers.
-          </p>
-          <div class="card-impact">Adopted by 200+ global Morgan Stanley developers</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">Chrome Extension</span>
-          <span class="tag-chip">JMeter Engine</span>
-          <span class="tag-chip">REST Client</span>
-          <span class="tag-chip">Side Panel API</span>
-        </div>
-      </div>
+      <h1 class="hero-heading">
+        <span class="gradient-text">Architecting distributed systems and autonomous AI infrastructure.</span>
+      </h1>
 
-      <!-- Card 3: UI-Prompt -->
-      <div class="motion-card" data-category="tools">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">Open Library</span>
-          </div>
-          <h3 class="card-h3">UI-Prompt Library</h3>
-          <p class="card-body">
-            In-page UI prompting npm library enabling direct contextual prompting and annotation over browser UI elements. Deployed firm-wide for AI-augmented frontend feedback loops.
-          </p>
-          <div class="card-impact">Standardized in-page AI interaction pattern</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">NPM Package</span>
-          <span class="tag-chip">DOM Annotation</span>
-          <span class="tag-chip">TypeScript</span>
-          <span class="tag-chip">Global Rollout</span>
-        </div>
-      </div>
-
-      <!-- Card 4: Agentic Observability & ACC -->
-      <div class="motion-card" data-category="ai">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">MCP Protocol</span>
-          </div>
-          <h3 class="card-h3">Agentic Observability & ACC Skills</h3>
-          <p class="card-body">
-            Enterprise Model Context Protocol (MCP) agents uniting Splunk, Grafana, and DB telemetry into conversational workflows. Autonomous ACC skill analyzed 12 months of production logs to clean logging noise.
-          </p>
-          <div class="card-impact">-70% production log noise across 67 applications</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">MCP Protocol</span>
-          <span class="tag-chip">Splunk & Grafana</span>
-          <span class="tag-chip">Autonomous Skill</span>
-          <span class="tag-chip">Moderne AST</span>
-        </div>
-      </div>
-
-      <!-- Card 5: Matrix Tab Provider -->
-      <div class="motion-card" data-category="core">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">High Frequency</span>
-          </div>
-          <h3 class="card-h3">Matrix Tab Provider (HFT)</h3>
-          <p class="card-body">
-            Subject Matter Expert across 5+ years for the core Tab Provider service on Morgan Stanley's mission-critical trading platform. Decoupled high-dependency bottlenecks and optimized high-volume concurrency.
-          </p>
-          <div class="card-impact">Zero critical defects shipped over 5+ year release cycles</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">Java 17/21</span>
-          <span class="tag-chip">Sub-ms Latency</span>
-          <span class="tag-chip">DB2 / Concurrency</span>
-          <span class="tag-chip">Auto SDLC</span>
-        </div>
-      </div>
-
-      <!-- Card 6: Genetic Algorithm Optimizer -->
-      <div class="motion-card" data-category="core">
-        <div>
-          <div class="card-top">
-            <span class="card-badge">Algorithm Engineering</span>
-          </div>
-          <h3 class="card-h3">Optimizer Conference Engine</h3>
-          <p class="card-body">
-            Genetic Algorithm-based optimization engine automating global conference schedules across hundreds of simultaneous attendees with multi-constraint satisfaction.
-          </p>
-          <div class="card-impact">Reduced global scheduling execution from days to minutes</div>
-        </div>
-        <div class="tech-tags">
-          <span class="tag-chip">Genetic Algorithms</span>
-          <span class="tag-chip">Constraint Solver</span>
-          <span class="tag-chip">Cvent API</span>
-          <span class="tag-chip">Kotlin / PostgreSQL</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Career Experience Timeline -->
-  <section class="content-section" id="experience">
-    <span class="section-tag">// 02. Professional Milestones</span>
-    <div class="section-head">
-      <h2 class="section-title">Leadership & <em>Engineering Record</em></h2>
-    </div>
-
-    <div class="timeline-wrap">
-      <!-- Morgan Stanley -->
-      <div class="timeline-card">
-        <div class="timeline-top">
-          <span class="role-title">Director – Technology & Principal Backend Engineer</span>
-          <span class="tenure">May 2021 – Present</span>
-        </div>
-        <div class="company-name">Morgan Stanley — Bengaluru, India</div>
-        <ul class="timeline-list">
-          <li>Lead a dedicated team of 5 backend engineers, steering technical strategy, code reviews, and Agile execution for high-frequency trading and firm-wide services.</li>
-          <li>Spearheaded Spring-to-Spring Boot migration across 20+ enterprise projects, standardizing CI/CD pipelines and winning the <strong>Morgan Stanley Platform Modernization Award (2023 & 2025)</strong>.</li>
-          <li>Engineered production AI Agents using Model Context Protocol (MCP) and natural-language ACC Agents for incident triage across 67 critical systems.</li>
-          <li>Decoupled tightly coupled architecture in the Matrix trading platform, completely eliminating a class of production cascading failures under peak trading hours.</li>
-        </ul>
-      </div>
-
-      <!-- HCL Software -->
-      <div class="timeline-card">
-        <div class="timeline-top">
-          <span class="role-title">Developer</span>
-          <span class="tenure">May 2020 – March 2021</span>
-        </div>
-        <div class="company-name">HCL Software — Bengaluru, India</div>
-        <ul class="timeline-list">
-          <li>Engineered 3 core integration plugins (Automation Anywhere, Blue Prism, Azure Resource Manager) for HCL Workload Automation, used by 1,000,000+ enterprise users globally.</li>
-          <li>Published 3 technical articles on HCL's engineering blog regarding plugin architecture and RPA orchestration.</li>
-        </ul>
-      </div>
-
-      <!-- Infosys / Goldman Sachs -->
-      <div class="timeline-card">
-        <div class="timeline-top">
-          <span class="role-title">Senior Systems Engineer</span>
-          <span class="tenure">November 2017 – May 2020</span>
-        </div>
-        <div class="company-name">Infosys (Client: Goldman Sachs) — Bengaluru, India</div>
-        <ul class="timeline-list">
-          <li>Architected workflow modules for Navigator, Goldman Sachs' internal audit management platform.</li>
-          <li>Integrated Camunda BPMN engine to automate multi-tier approval tracking, replacing manual email processes with auditable state workflows.</li>
-          <li>Introduced an in-memory caching layer, reducing database load and cutting page load times for audit teams.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Mastery Grid -->
-  <section class="content-section" id="skills">
-    <span class="section-tag">// 03. Technical Capabilities</span>
-    <div class="section-head">
-      <h2 class="section-title">Architectural <em>Arsenal</em></h2>
-    </div>
-
-    <div class="skills-quad">
-      <div class="skill-block">
-        <h4>Core Languages</h4>
-        <ul>
-          <li><span>Java 21 / 17 / 11</span> <span>Expert</span></li>
-          <li><span>SQL & Optimization</span> <span>Advanced</span></li>
-          <li><span>JavaScript / TypeScript</span> <span>Proficient</span></li>
-          <li><span>Kotlin</span> <span>Working</span></li>
-        </ul>
-      </div>
-
-      <div class="skill-block">
-        <h4>AI & Agent Ecosystem</h4>
-        <ul>
-          <li><span>Model Context Protocol (MCP)</span> <span>Production</span></li>
-          <li><span>ACC Agentic Skills</span> <span>Architect</span></li>
-          <li><span>Claude Code & Copilot</span> <span>Lead</span></li>
-          <li><span>Genetic Algorithms</span> <span>Advanced</span></li>
-        </ul>
-      </div>
-
-      <div class="skill-block">
-        <h4>Architecture & Stack</h4>
-        <ul>
-          <li><span>Spring Boot & MVC</span> <span>Expert</span></li>
-          <li><span>Microservices & REST</span> <span>Mastery</span></li>
-          <li><span>Concurrency & High-Throughput</span> <span>Advanced</span></li>
-          <li><span>DB2 & PostgreSQL</span> <span>Production</span></li>
-        </ul>
-      </div>
-
-      <div class="skill-block">
-        <h4>DevOps & Tools</h4>
-        <ul>
-          <li><span>Gradle & Jenkins CI/CD</span> <span>Mastery</span></li>
-          <li><span>Splunk & Grafana</span> <span>Advanced</span></li>
-          <li><span>JMeter & Performance Profiling</span> <span>Expert</span></li>
-          <li><span>Azure Cloud Deployment</span> <span>Proficient</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Floating Dock Footer -->
-  <footer class="dock-footer" id="contact">
-    <div class="dock-content">
-      <h2 class="dock-title">Let’s build something <em>extraordinary</em>.</h2>
-      <p class="dock-sub">Open for strategic leadership roles, high-scale architecture consulting, and AI systems discussions.</p>
-      
-      <div class="dock-bar">
-        <a href="mailto:shubhamchaurasia315@gmail.com" class="dock-btn dock-btn-main">
-          <span>✉ Email Me</span>
-        </a>
-        <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="dock-btn dock-btn-sub">
-          <span>LinkedIn ↗</span>
-        </a>
-        <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="dock-btn dock-btn-sub">
-          <span>GitHub ↗</span>
-        </a>
-      </div>
-
-      <p style="margin-top: 50px; font-size: 12px; font-family: var(--font-mono); color: #555;">
-        © 2026 Shubham Chaurasia. Designed for high performance. 60FPS motion canvas.
+      <p class="hero-sub">
+        Engineering leader with 8+ years experience scaling high-frequency trading platforms, Model Context Protocol (MCP) integrations, and developer productivity tooling across 200+ enterprise repositories.
       </p>
+
+      <div class="hero-buttons">
+        <a href="#work" class="btn btn-primary">View Featured Systems ↓</a>
+        <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="btn btn-secondary">GitHub Profile ↗</a>
+        <a href="mailto:shubhamchaurasia315@gmail.com" class="btn btn-secondary">Email Shubham</a>
+      </div>
+
+      <!-- Executive Credibility Metrics -->
+      <div class="metrics-strip">
+        <div class="metric-box">
+          <span class="metric-value">8+ Yrs</span>
+          <span class="metric-desc">Backend Architecture</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value">200+</span>
+          <span class="metric-desc">Repos in Matrix Lens</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value">-70%</span>
+          <span class="metric-desc">Log Volume Noise via AI</span>
+        </div>
+        <div class="metric-box">
+          <span class="metric-value">200+</span>
+          <span class="metric-desc">Daily Active Devs on Tools</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work: Bento Grid -->
+    <section class="work-section" id="work">
+      <div class="section-head">
+        <span class="section-eyebrow">01 // Architectural Initiatives</span>
+        <h2 class="section-title">Selected Systems & AI Platforms</h2>
+        <p class="section-description">High-impact infrastructure engineered for live production environments across financial technology and AI operations.</p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Bento 1: PB Matrix Lens (Wide) -->
+        <div class="bento-card col-8">
+          <div>
+            <div class="card-meta">
+              <span class="tag highlight">Flagship AI System</span>
+              <span class="tag">Enterprise Knowledge Base</span>
+            </div>
+            <h3 class="card-title">PB Matrix Lens</h3>
+            <p class="card-text">
+              An enterprise-wide AI Assistant and knowledge platform covering 200+ project repositories. Heavily utilized by L2 support to index historical incidents, map complex dependencies, and automatically prescribe resolution steps. Integrated natively via Copilot Spaces and Claude Code/Codex plugins.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ Slashed L2 incident triage latency from 35m to &lt;1.2s</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">LLM Architecture</span>
+            <span class="tech-pill">Claude Code Plugin</span>
+            <span class="tech-pill">Copilot Spaces</span>
+            <span class="tech-pill">Incident Triage</span>
+            <span class="tech-pill">Microservices Graph</span>
+          </div>
+        </div>
+
+        <!-- Bento 2: API Garage -->
+        <div class="bento-card col-4">
+          <div>
+            <div class="card-meta">
+              <span class="tag">Developer Productivity</span>
+            </div>
+            <h3 class="card-title">API Garage</h3>
+            <p class="card-text">
+              Chrome side-panel combining Postman-style API execution with JMeter load simulation. Rapidly adopted by 200+ Morgan Stanley developers, eliminating external tooling context switches.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ 200+ active engineers daily</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Chrome Extension</span>
+            <span class="tech-pill">JMeter Profiler</span>
+            <span class="tech-pill">Side Panel API</span>
+          </div>
+        </div>
+
+        <!-- Bento 3: UI-Prompt Library -->
+        <div class="bento-card col-4">
+          <div>
+            <div class="card-meta">
+              <span class="tag">Open Internal Package</span>
+            </div>
+            <h3 class="card-title">UI-Prompt Library</h3>
+            <p class="card-text">
+              In-page DOM prompting npm library enabling engineers and stakeholders to annotate UI components directly in the browser and inject contextual prompts into AI agents.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ Adopted by global division teams</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">TypeScript</span>
+            <span class="tech-pill">NPM Package</span>
+            <span class="tech-pill">DOM Annotation</span>
+          </div>
+        </div>
+
+        <!-- Bento 4: Agentic Observability & ACC -->
+        <div class="bento-card col-8">
+          <div>
+            <div class="card-meta">
+              <span class="tag highlight">Model Context Protocol</span>
+              <span class="tag">Autonomous Skill</span>
+            </div>
+            <h3 class="card-title">Agentic Observability & ACC Skills</h3>
+            <p class="card-text">
+              Production AI Agents utilizing Model Context Protocol (MCP) to interface directly with Splunk, Grafana, and DB health checks. Developed an autonomous ACC Skill that evaluated 12 months of live logs across 67 enterprise applications and generated automated code recipes to eliminate redundant noise.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ 70% log volume reduction across 67 critical services</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">MCP Protocol</span>
+            <span class="tech-pill">Splunk & Grafana</span>
+            <span class="tech-pill">Autonomous AI</span>
+            <span class="tech-pill">Telemetry Refactoring</span>
+          </div>
+        </div>
+
+        <!-- Bento 5: Matrix Tab Provider (Trading Platform) -->
+        <div class="bento-card col-6">
+          <div>
+            <div class="card-meta">
+              <span class="tag">High-Frequency Trading</span>
+            </div>
+            <h3 class="card-title">Matrix Platform: Tab Provider</h3>
+            <p class="card-text">
+              Served as Subject Matter Expert over a 5+ year tenure on Matrix — Morgan Stanley's real-time trading engine processing millions of financial transactions. Decoupled high-dependency bottlenecks and optimized peak trading-hour concurrency.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ 100% commit review & zero critical release defects</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Java 17/21</span>
+            <span class="tech-pill">Sub-ms Latency</span>
+            <span class="tech-pill">DB2</span>
+            <span class="tech-pill">Auto SDLC</span>
+          </div>
+        </div>
+
+        <!-- Bento 6: Genetic Algorithm Optimizer -->
+        <div class="bento-card col-6">
+          <div>
+            <div class="card-meta">
+              <span class="tag">Algorithm Design</span>
+            </div>
+            <h3 class="card-title">Genetic Algorithm Conference Optimizer</h3>
+            <p class="card-text">
+              Architected a scheduling optimization platform from scratch. Designed a Genetic Algorithm engine to solve complex multi-constraint scheduling for global conference operations, integrating seamlessly with Cvent APIs.
+            </p>
+            <div class="card-stats-pill">
+              <span>⚡ Reduced scheduling execution from days to minutes</span>
+            </div>
+          </div>
+          <div class="tech-stack">
+            <span class="tech-pill">Genetic Algorithms</span>
+            <span class="tech-pill">Kotlin / Java</span>
+            <span class="tech-pill">PostgreSQL</span>
+            <span class="tech-pill">Cvent API</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="experience-section" id="experience">
+      <div class="section-head">
+        <span class="section-eyebrow">02 // Career Trajectory</span>
+        <h2 class="section-title">Leadership & Track Record</h2>
+        <p class="section-description">Proven trajectory from core backend engineering to executive technology director.</p>
+      </div>
+
+      <div class="timeline">
+        <!-- Morgan Stanley -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Director – Technology & Principal Backend Engineer</h3>
+              <div class="timeline-company">Morgan Stanley • Bengaluru, India</div>
+            </div>
+            <span class="timeline-period">May 2021 – Present</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Lead a dedicated team of 5 backend engineers, steering technical strategy, system architecture, mentoring, and Agile execution for high-frequency trading and firm-wide platforms.</li>
+            <li>Subject Matter Expert for Tab Provider on Matrix, safeguarding platform stability under peak trading-hour volumes.</li>
+            <li>Spearheaded Spring-to-Spring Boot modernization across 20+ enterprise services, standardizing automated Gradle CI/CD pipelines and earning the <strong>Platform Modernization Award in 2023 & 2025</strong>.</li>
+            <li>Designed and launched enterprise Model Context Protocol (MCP) agents and ACC skills, cutting telemetry noise and accelerating incident triage.</li>
+          </ul>
+        </div>
+
+        <!-- HCL Software -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Developer</h3>
+              <div class="timeline-company">HCL Software • Bengaluru, India</div>
+            </div>
+            <span class="timeline-period">May 2020 – March 2021</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Engineered 3 core integration plugins (Automation Anywhere, Blue Prism, Azure Resource Manager) for HCL Workload Automation, used by 1,000,000+ enterprise users worldwide.</li>
+            <li>Authored 3 published technical articles on HCL's engineering blog documenting plugin architecture and RPA orchestration patterns.</li>
+          </ul>
+        </div>
+
+        <!-- Infosys / Goldman Sachs -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div>
+              <h3 class="timeline-role">Senior Systems Engineer</h3>
+              <div class="timeline-company">Infosys (Client: Goldman Sachs) • Bengaluru, India</div>
+            </div>
+            <span class="timeline-period">November 2017 – May 2020</span>
+          </div>
+          <ul class="timeline-desc">
+            <li>Architected workflow modules for Navigator, Goldman Sachs' internal audit management platform handling risk tracking and team allocations.</li>
+            <li>Integrated Camunda BPMN engine to automate multi-tier approval lifecycles, replacing manual email processes with auditable state workflows.</li>
+            <li>Implemented in-memory caching to optimize response times for audit manager dashboards.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities Matrix -->
+    <section class="skills-section" id="skills">
+      <div class="section-head">
+        <span class="section-eyebrow">03 // Technical Depth</span>
+        <h2 class="section-title">Core Capabilities & Stack</h2>
+        <p class="section-description">Architectural foundations across enterprise backend systems and agentic AI.</p>
+      </div>
+
+      <div class="matrix-grid">
+        <div class="matrix-card">
+          <h3>Backend & Architecture</h3>
+          <ul>
+            <li><span>Java (21, 17, 11)</span> <span class="level">Expert</span></li>
+            <li><span>Spring Boot & Spring MVC</span> <span class="level">Expert</span></li>
+            <li><span>Microservices Architecture</span> <span class="level">Mastery</span></li>
+            <li><span>Concurrency & High Throughput</span> <span class="level">Advanced</span></li>
+            <li><span>REST API Contract Design</span> <span class="level">Mastery</span></li>
+          </ul>
+        </div>
+
+        <div class="matrix-card">
+          <h3>AI & Autonomous Infrastructure</h3>
+          <ul>
+            <li><span>Model Context Protocol (MCP)</span> <span class="level">Production</span></li>
+            <li><span>Agentic Skills & Workflows</span> <span class="level">Architect</span></li>
+            <li><span>Claude Code & Copilot Plugins</span> <span class="level">Advanced</span></li>
+            <li><span>Genetic Algorithms & Solvers</span> <span class="level">Advanced</span></li>
+            <li><span>Enterprise Telemetry AI</span> <span class="level">Lead</span></li>
+          </ul>
+        </div>
+
+        <div class="matrix-card">
+          <h3>Databases & Cloud DevOps</h3>
+          <ul>
+            <li><span>DB2 / PostgreSQL / MySQL</span> <span class="level">Production</span></li>
+            <li><span>Gradle Build Automation</span> <span class="level">Mastery</span></li>
+            <li><span>Jenkins & CI/CD Pipelines</span> <span class="level">Advanced</span></li>
+            <li><span>Splunk & Grafana Observability</span> <span class="level">Advanced</span></li>
+            <li><span>Azure Cloud Deployment</span> <span class="level">Working</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recognition & Publications -->
+    <section class="awards-section" id="awards">
+      <div class="section-head">
+        <span class="section-eyebrow">04 // Achievements</span>
+        <h2 class="section-title">Honors & Publications</h2>
+      </div>
+
+      <div class="awards-grid">
+        <div class="award-card">
+          <div class="award-year">2025 & 2023</div>
+          <h3 class="award-title">Platform Modernization Award</h3>
+          <p class="award-org">Awarded twice by Morgan Stanley for delivering large-scale Spring Boot migrations and CI/CD standardization across 20+ production systems.</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2022</div>
+          <h3 class="award-title">Culture Award</h3>
+          <p class="award-org">Awarded by Morgan Stanley for exemplary leadership, technical mentorship, and cross-functional engineering excellence.</p>
+        </div>
+
+        <div class="award-card">
+          <div class="award-year">2020 – 2021</div>
+          <h3 class="award-title">HCL Tech Publications</h3>
+          <p class="award-org">Published 3 technical engineering papers on Workload Automation plugins for Blue Prism, Azure Resource Manager, and Automation Anywhere.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Professional Minimalist Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-wrap">
+        <div class="footer-left">
+          <h2>Shubham Chaurasia</h2>
+          <p>Director of Technology • Principal Backend Engineer • AI Systems Architect based in Bengaluru, India.</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <span class="footer-col-title">Navigation</span>
+            <a href="#work">Systems</a>
+            <a href="#experience">Experience</a>
+            <a href="#skills">Capabilities</a>
+            <a href="#awards">Honors</a>
+          </div>
+          <div class="footer-col">
+            <span class="footer-col-title">Connect</span>
+            <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="mailto:shubhamchaurasia315@gmail.com">Email ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Shubham Chaurasia. All rights reserved.</span>
+        <span>Built with clean semantic standards.</span>
+      </div>
     </div>
   </footer>
 
-  <!-- Interactive Scripts (Neural Network Canvas + 3D Tilt + Terminal Simulator + Metrics) -->
-  <script>
-    (function () {
-      // 1. Ambient Cursor Spotlight
-      var glow = document.getElementById('cursor-glow');
-      var mouseX = window.innerWidth / 2;
-      var mouseY = window.innerHeight / 2;
-
-      window.addEventListener('mousemove', function (e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        if (glow) {
-          glow.style.left = mouseX + 'px';
-          glow.style.top = mouseY + 'px';
-        }
-      });
-
-      // 2. High-Performance Interactive Constellation Canvas
-      var canvas = document.getElementById('network-canvas');
-      var ctx = canvas.getContext('2d');
-      var width, height;
-      var particles = [];
-      var particleCount = 55;
-
-      function resizeCanvas() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resizeCanvas);
-      resizeCanvas();
-
-      function Particle() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.vx = (Math.random() - 0.5) * 0.45;
-        this.vy = (Math.random() - 0.5) * 0.45;
-        this.radius = Math.random() * 1.5 + 1;
-      }
-
-      Particle.prototype.update = function () {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0) this.x = width;
-        if (this.x > width) this.x = 0;
-        if (this.y < 0) this.y = height;
-        if (this.y > height) this.y = 0;
-
-        // Repel slightly from cursor
-        var dx = mouseX - this.x;
-        var dy = mouseY - this.y;
-        var dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 120) {
-          this.x -= (dx / dist) * 0.8;
-          this.y -= (dy / dist) * 0.8;
-        }
-      };
-
-      Particle.prototype.draw = function () {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
-        ctx.fill();
-      };
-
-      for (var i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-
-      function animateNetwork() {
-        ctx.clearRect(0, 0, width, height);
-
-        for (var i = 0; i < particles.length; i++) {
-          particles[i].update();
-          particles[i].draw();
-
-          for (var j = i + 1; j < particles.length; j++) {
-            var dx = particles[i].x - particles[j].x;
-            var dy = particles[i].y - particles[j].y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 130) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              var opacity = (1 - dist / 130) * 0.18;
-              ctx.strokeStyle = 'rgba(0, 240, 255, ' + opacity + ')';
-              ctx.lineWidth = 0.75;
-              ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(animateNetwork);
-      }
-      animateNetwork();
-
-      // 3. 3D Card Tilt Interaction
-      var cards = document.querySelectorAll('.motion-card');
-      cards.forEach(function (card) {
-        card.addEventListener('mousemove', function (e) {
-          var rect = card.getBoundingClientRect();
-          var x = e.clientX - rect.left;
-          var y = e.clientY - rect.top;
-          var centerX = rect.width / 2;
-          var centerY = rect.height / 2;
-          var rotateX = ((y - centerY) / centerY) * -7;
-          var rotateY = ((x - centerX) / centerX) * 7;
-          card.style.transform = 'perspective(1000px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) translateY(-4px)';
-        });
-
-        card.addEventListener('mouseleave', function () {
-          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-        });
-      });
-
-      // 4. Work Category Filters
-      var filterTabs = document.querySelectorAll('.tab-btn');
-      filterTabs.forEach(function (tab) {
-        tab.addEventListener('click', function () {
-          filterTabs.forEach(function (t) { t.classList.remove('active'); });
-          tab.classList.add('active');
-          var filter = tab.getAttribute('data-filter');
-
-          cards.forEach(function (card) {
-            var cat = card.getAttribute('data-category');
-            if (filter === 'all' || cat === filter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // 5. Interactive Terminal Simulator
-      var termTyping = document.getElementById('term-typing');
-      var termOutput = document.getElementById('term-output');
-      var cmdPills = document.querySelectorAll('.pill-cmd');
-
-      var commands = {
-        'matrix-lens': {
-          cmd: 'pb-matrix-lens --inspect --scope=all',
-          output: '[STATUS] Matrix Lens v3.2 active.\n[KNOWLEDGE BASE] Ingested 200+ microservices & incident tickets.\n[ACCELERATION] L2 support ticket resolution time slashed from 35m to <1.2s.\n[CLIENTS] Copilot Spaces, Claude Code plugin, Matrix UI.'
-        },
-        'acc-agent': {
-          cmd: 'acc-agent --run-logging-optimizer',
-          output: '[SCAN] 12 months log audit complete.\n[IDENTIFIED] 4.2M redundant log entries across 67 targets.\n[ACTION] Applied automated Moderne recipes.\n[RESULT] 70% decrease in log volume; zero telemetry loss.'
-        },
-        'api-garage': {
-          cmd: 'api-garage --users-stat',
-          output: '[EXTENSION] API Garage (RestClient & JMeter profiler).\n[ACTIVE USERS] 200+ engineers daily in Morgan Stanley.\n[EFFICIENCY] Eliminates external app context switching during API dev.'
-        }
-      };
-
-      cmdPills.forEach(function (pill) {
-        pill.addEventListener('click', function () {
-          var cmdKey = pill.getAttribute('data-cmd');
-          if (cmdKey === 'clear') {
-            termOutput.innerHTML = '<div class="terminal-line" id="term-active-line"><span class="t-prefix">shubham@cluster:~$</span><span class="t-cmd" id="term-typing"></span><span class="cursor-blink"></span></div>';
-            return;
-          }
-          var item = commands[cmdKey];
-          if (!item) return;
-
-          // Append simulated command
-          var activeLine = document.getElementById('term-active-line');
-          if (activeLine) {
-            var cmdBlock = document.createElement('div');
-            cmdBlock.innerHTML = '<div class="terminal-line"><span class="t-prefix">shubham@cluster:~$</span><span class="t-cmd">' + item.cmd + '</span></div><div class="t-output">' + item.output.replace(/\n/g, '<br/>') + '</div>';
-            termOutput.insertBefore(cmdBlock, activeLine);
-            termOutput.scrollTop = termOutput.scrollHeight;
-          }
-        });
-      });
-
-      // Mobile Menu Toggle
-      var burger = document.getElementById('burger-btn');
-      var nav = document.querySelector('.nav-pills');
-      if (burger && nav) {
-        burger.addEventListener('click', function () {
-          var isFlex = nav.style.display === 'flex';
-          nav.style.display = isFlex ? 'none' : 'flex';
-          if (!isFlex) {
-            nav.style.position = 'absolute';
-            nav.style.top = '72px';
-            nav.style.left = '0';
-            nav.style.width = '100%';
-            nav.style.flexDirection = 'column';
-            nav.style.background = '#0a0a0e';
-            nav.style.padding = '20px';
-            nav.style.borderBottom = '1px solid var(--border)';
-          }
-        });
-      }
-    })();
-  </script>
 </body>
 </html>
