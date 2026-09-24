@@ -955,6 +955,529 @@
         padding: 24px;
       }
     }
+
+    /* ─── HANGING ID CARDS SHOWCASE (Lightswind Pendulum Component) ─── */
+    .credentials-stage {
+      padding: 90px 0 60px;
+      position: relative;
+      border-top: 1px solid var(--surface-border);
+    }
+
+    .badges-dual-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 36px;
+      margin-top: 48px;
+    }
+
+    .badge-card-container {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 28px;
+      padding: 36px 24px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 16px 40px -15px rgba(0,0,0,0.5);
+    }
+
+    .badge-card-container:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .badge-container-glow-blue {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(30px);
+    }
+
+    .badge-container-glow-green {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+      pointer-events: none;
+      filter: blur(30px);
+    }
+
+    .badge-meta-top {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .badge-tag-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .badge-pill-student {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+    }
+
+    .badge-pill-teacher {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+    }
+
+    .badge-meta-top h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .badge-meta-top p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+    }
+
+    /* Hanging Card Element */
+    .hanging-card-wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: pan-y;
+      perspective: 1000px;
+      margin-bottom: 20px;
+    }
+
+    .ceiling-bracket {
+      position: relative;
+      z-index: 10;
+      height: 14px;
+      width: 36px;
+      border-radius: 6px 6px 0 0;
+      background: linear-gradient(180deg, #64748b 0%, #1e293b 100%);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .bracket-bolt {
+      position: absolute;
+      top: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.6);
+    }
+
+    .card-assembly {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      outline: none;
+      cursor: grab;
+      transform-origin: top center;
+      will-change: transform;
+      margin-top: -4px;
+    }
+
+    .card-assembly:active {
+      cursor: grabbing;
+    }
+
+    .lanyard-svg {
+      display: block;
+      margin: 0 auto;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .pvc-card {
+      position: relative;
+      margin-top: -14px;
+      width: 250px;
+      border-radius: 22px;
+      background: linear-gradient(175deg, #0d1424 0%, #060913 100%);
+      box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .pvc-card.pvc-student {
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.75), 0 0 20px rgba(59, 130, 246, 0.2);
+    }
+
+    .pvc-card.pvc-teacher {
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      background: linear-gradient(175deg, #061512 0%, #030806 100%);
+      box-shadow: 0 20px 42px -12px rgba(0, 0, 0, 0.75), 0 0 20px rgba(16, 185, 129, 0.2);
+    }
+
+    .pvc-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(125deg, transparent 15%, rgba(255,255,255,0.18) 35%, rgba(56,189,248,0.22) 50%, rgba(168,85,247,0.22) 65%, transparent 85%);
+      opacity: 0.45;
+      mix-blend-mode: overlay;
+      pointer-events: none;
+    }
+
+    .punched-slot {
+      display: flex;
+      justify-content: center;
+      padding: 7px 0 5px;
+      background: #040711;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .slot-hole {
+      width: 38px;
+      height: 11px;
+      border-radius: 10px;
+      background: #02040a;
+      border: 1px solid rgba(100, 116, 139, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+
+    .slot-inner {
+      width: 26px;
+      height: 5px;
+      border-radius: 4px;
+      background: #050814;
+    }
+
+    .card-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .pvc-student .card-header-bar {
+      background: linear-gradient(135deg, rgba(37,99,235,0.35) 0%, rgba(15,23,42,0.85) 75%, rgba(67,56,202,0.4) 100%);
+    }
+
+    .pvc-teacher .card-header-bar {
+      background: linear-gradient(135deg, rgba(5,150,105,0.4) 0%, rgba(6,78,59,0.7) 60%, rgba(15,23,42,0.9) 100%);
+    }
+
+    .emv-chip {
+      width: 30px;
+      height: 22px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #fcd34d 0%, #d97706 50%, #b45309 100%);
+      border: 1px solid #78350f;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      padding: 1px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    }
+
+    .emv-trace {
+      border: 0.5px solid rgba(120, 53, 15, 0.7);
+      background: rgba(253, 230, 138, 0.45);
+      border-radius: 0.5px;
+    }
+
+    .card-brand-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .brand-logo-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 0.05em;
+    }
+
+    .card-inst-text {
+      font-size: 7.5px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: rgba(203, 213, 225, 0.85);
+      text-transform: uppercase;
+    }
+
+    .card-photo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 14px 6px;
+    }
+
+    .photo-window {
+      position: relative;
+      width: 106px;
+      height: 128px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: #090d16;
+    }
+
+    .pvc-student .photo-window {
+      border: 2px solid rgba(59, 130, 246, 0.6);
+      box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.35);
+    }
+
+    .pvc-teacher .photo-window {
+      border: 2px solid rgba(16, 185, 129, 0.6);
+      box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.35);
+    }
+
+    .photo-window img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .photo-window::before {
+      content: "";
+      position: absolute;
+      inset: 2px;
+      border: 1px dashed rgba(255,255,255,0.25);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .photo-glass-shine {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .photo-id-tag {
+      position: absolute;
+      bottom: 4px;
+      right: 4px;
+      background: rgba(0,0,0,0.7);
+      border-radius: 3px;
+      padding: 1px 4px;
+      font-family: var(--font-mono);
+      font-size: 7px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .card-name-title {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: -0.01em;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .card-role-pill {
+      margin-top: 4px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 2.5px 9px;
+      border-radius: 12px;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .pvc-student .card-role-pill {
+      background: rgba(59, 130, 246, 0.18);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+    }
+
+    .pvc-teacher .card-role-pill {
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+    }
+
+    .card-role-pill .dot {
+      width: 4.5px;
+      height: 4.5px;
+      border-radius: 50%;
+    }
+
+    .pvc-student .card-role-pill .dot { background: #3b82f6; }
+    .pvc-teacher .card-role-pill .dot { background: #10b981; }
+
+    .card-body-details {
+      padding: 4px 14px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .card-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
+    }
+
+    .card-tag {
+      padding: 1.5px 7px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 9px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .card-pass-label {
+      font-size: 8px;
+      font-weight: 700;
+      color: rgba(148, 163, 184, 0.85);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .barcode-svg {
+      width: 100%;
+      height: 18px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 2px;
+      opacity: 0.85;
+    }
+
+    .barcode-bar {
+      border-radius: 0.5px;
+      background: #94a3b8;
+    }
+
+    .card-footer-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 5px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .card-id-code {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+
+    .pvc-student .card-id-code { color: #3b82f6; }
+    .pvc-teacher .card-id-code { color: #10b981; }
+
+    .card-verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 1.5px 7px;
+      border-radius: 12px;
+      background: #059669;
+      color: #ffffff;
+      font-size: 8px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .card-verified-badge .ping {
+      width: 4.5px;
+      height: 4.5px;
+      border-radius: 50%;
+      background: #ffffff;
+      animation: pulse-dot 1.5s infinite;
+    }
+
+    .drag-hint {
+      margin-top: 10px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+
+    .btn-badge-open {
+      margin-top: 8px;
+      width: 100%;
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-badge-open-student {
+      background: rgba(59, 130, 246, 0.15);
+      border: 1px solid rgba(59, 130, 246, 0.35);
+      color: #60a5fa;
+    }
+    .btn-badge-open-student:hover {
+      background: #3b82f6;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-badge-open-teacher {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34d399;
+    }
+    .btn-badge-open-teacher:hover {
+      background: #10b981;
+      color: #000;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+    }
+
   </style>
 </head>
 <body>
@@ -990,10 +1513,12 @@
     <!-- Motion Nav Bar -->
     <nav class="motion-nav">
       <a href="#home" class="nav-tab active">Overview</a>
+      <a href="#credentials" class="nav-tab">ID Badges</a>
+      <a href="student.html" class="nav-tab">🎓 Student Pass</a>
+      <a href="teacher.html" class="nav-tab">👨‍🏫 Teacher Pass</a>
       <a href="#systems" class="nav-tab">Systems Deck</a>
       <a href="#architecture" class="nav-tab">Architecture</a>
       <a href="#career" class="nav-tab">Trajectory</a>
-      <a href="#honors" class="nav-tab">Honors</a>
     </nav>
 
     <!-- Header Actions -->
@@ -1047,6 +1572,274 @@
         <div class="ticker-card">
           <span class="ticker-num" data-val="200">200+</span>
           <span class="ticker-caption">Active Engineers on Tools</span>
+        </div>
+      </div>
+    </section>
+
+    
+    <!-- 01.5 // CREDENTIALS STAGE (Interactive Hanging ID Cards) -->
+    <section class="credentials-stage" id="credentials">
+      <div class="stage-header">
+        <div>
+          <span class="eyebrow">// 01. Verified Digital Credentials · Lightswind Pendulum Motion</span>
+          <h2 class="stage-title">Interactive <em>Hanging Identity Badges</em></h2>
+          <p style="color: var(--text-muted); font-size: 14.5px; max-width: 650px; margin-top: 8px;">
+            Dual verified identity passes featuring real-time pendulum physics simulation. Grab, drag left/right, or tap each credential to experience authentic physical momentum, air resistance damping, and 3D spatial tilt.
+          </p>
+        </div>
+      </div>
+
+      <div class="badges-dual-grid">
+        <!-- ─── CARD 1: STUDENT PROFILE PASS ─── -->
+        <div class="badge-card-container">
+          <div class="badge-container-glow-blue"></div>
+          
+          <div class="badge-meta-top">
+            <span class="badge-tag-pill badge-pill-student">🎓 Scholar Credential</span>
+            <h3>Student Identity Pass</h3>
+            <p>Continuous learning in Agentic AI & Distributed Systems</p>
+          </div>
+
+          <div class="hanging-card-wrapper" id="home-student-wrapper">
+            <div class="ceiling-bracket">
+              <div class="bracket-bolt"></div>
+            </div>
+
+            <div class="card-assembly" id="home-student-assembly" tabindex="0" role="button" aria-label="Interactive Student ID Card. Drag or tap to swing.">
+              <!-- SVG Lanyard -->
+              <svg class="lanyard-svg" width="48" height="112" viewBox="0 0 48 112" aria-hidden="true">
+                <defs>
+                  <linearGradient id="metalChrome1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#cbd5e1" />
+                    <stop offset="30%" stop-color="#64748b" />
+                    <stop offset="55%" stop-color="#334155" />
+                    <stop offset="85%" stop-color="#94a3b8" />
+                    <stop offset="100%" stop-color="#1e293b" />
+                  </linearGradient>
+                  <linearGradient id="hookSteel1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#94a3b8" />
+                    <stop offset="35%" stop-color="#334155" />
+                    <stop offset="70%" stop-color="#1e293b" />
+                    <stop offset="100%" stop-color="#475569" />
+                  </linearGradient>
+                  <linearGradient id="strapTexture1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0.6" />
+                    <stop offset="15%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="50%" stop-color="#ffffff" stop-opacity="0.04" />
+                    <stop offset="85%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+                  </linearGradient>
+                </defs>
+
+                <rect x="13" y="0" width="22" height="74" rx="2.5" fill="#0f172a" />
+                <rect x="13" y="0" width="22" height="74" rx="2.5" fill="url(#strapTexture1)" />
+                <line x1="15" y1="0" x2="15" y2="74" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="3 2" />
+                <line x1="33" y1="0" x2="33" y2="74" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="3 2" />
+                <rect x="11" y="70" width="26" height="11" rx="2" fill="url(#metalChrome1)" stroke="#0b0f19" stroke-width="0.8" />
+                <line x1="13" y1="75.5" x2="35" y2="75.5" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.2" />
+                <circle cx="24" cy="86" r="5.5" fill="none" stroke="url(#metalChrome1)" stroke-width="2.6" />
+                <path d="M 24 90 C 18 96, 18 105, 24 108 C 30 105, 30 96, 24 90 Z" fill="url(#hookSteel1)" stroke="#0b0f19" stroke-width="0.8" />
+                <ellipse cx="24" cy="107" rx="2.6" ry="4.5" fill="#02040a" opacity="0.9" />
+              </svg>
+
+              <!-- PVC Student Identity Card -->
+              <div class="pvc-card pvc-student">
+                <div class="punched-slot">
+                  <div class="slot-hole">
+                    <div class="slot-inner"></div>
+                  </div>
+                </div>
+
+                <div class="card-header-bar">
+                  <div class="emv-chip" title="EMV Security Chip">
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                  </div>
+
+                  <div class="card-brand-meta">
+                    <div class="brand-logo-row">
+                      <span>eSarathi</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                        <path d="M8.5 15.7a6.5 6.5 0 0 1 7 0" />
+                        <circle cx="12" cy="19" r="1" fill="currentColor" />
+                      </svg>
+                    </div>
+                    <span class="card-inst-text">eSARATHI ACADEMY</span>
+                  </div>
+                </div>
+
+                <div class="card-photo-section">
+                  <div class="photo-window">
+                    <img src="assets/shubham-id-body.jpg" alt="Shubham Chaurasia" onerror="this.src='assets/shubham-id-portrait.jpg'">
+                    <div class="photo-glass-shine"></div>
+                    <div class="photo-id-tag">PASS</div>
+                  </div>
+
+                  <h4 class="card-name-title">Shubham Chaurasia</h4>
+                  <div class="card-role-pill">
+                    <span class="dot"></span>
+                    <span>eSarathi Scholar</span>
+                  </div>
+                </div>
+
+                <div class="card-body-details">
+                  <div class="card-tags-row">
+                    <span class="card-tag">AI Architecture</span>
+                    <span class="card-tag">Distributed Systems</span>
+                  </div>
+
+                  <span class="card-pass-label">OFFICIAL STUDENT PASS</span>
+
+                  <div class="barcode-svg" id="home-student-barcode" aria-hidden="true"></div>
+
+                  <div class="card-footer-row">
+                    <span class="card-id-code">STU-2026-AI</span>
+                    <span class="card-verified-badge">
+                      <span class="ping"></span>
+                      <span>VERIFIED</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="drag-hint">✦ Drag or tap to swing</p>
+          </div>
+
+          <a href="student.html" class="btn-badge-open btn-badge-open-student">
+            Open Full Student Page →
+          </a>
+        </div>
+
+        <!-- ─── CARD 2: TEACHER PROFILE PASS ─── -->
+        <div class="badge-card-container">
+          <div class="badge-container-glow-green"></div>
+          
+          <div class="badge-meta-top">
+            <span class="badge-tag-pill badge-pill-teacher">👨‍🏫 Faculty Credential</span>
+            <h3>Teacher Identity Pass</h3>
+            <p>Director of Tech, Systems Architecture & Mentorship</p>
+          </div>
+
+          <div class="hanging-card-wrapper" id="home-teacher-wrapper">
+            <div class="ceiling-bracket">
+              <div class="bracket-bolt"></div>
+            </div>
+
+            <div class="card-assembly" id="home-teacher-assembly" tabindex="0" role="button" aria-label="Interactive Teacher ID Card. Drag or tap to swing.">
+              <!-- SVG Lanyard -->
+              <svg class="lanyard-svg" width="48" height="112" viewBox="0 0 48 112" aria-hidden="true">
+                <defs>
+                  <linearGradient id="metalChrome2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#cbd5e1" />
+                    <stop offset="30%" stop-color="#64748b" />
+                    <stop offset="55%" stop-color="#334155" />
+                    <stop offset="85%" stop-color="#94a3b8" />
+                    <stop offset="100%" stop-color="#1e293b" />
+                  </linearGradient>
+                  <linearGradient id="hookSteel2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#94a3b8" />
+                    <stop offset="35%" stop-color="#334155" />
+                    <stop offset="70%" stop-color="#1e293b" />
+                    <stop offset="100%" stop-color="#475569" />
+                  </linearGradient>
+                  <linearGradient id="strapTexture2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0.6" />
+                    <stop offset="15%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="50%" stop-color="#ffffff" stop-opacity="0.04" />
+                    <stop offset="85%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
+                  </linearGradient>
+                </defs>
+
+                <rect x="13" y="0" width="22" height="74" rx="2.5" fill="#06241a" />
+                <rect x="13" y="0" width="22" height="74" rx="2.5" fill="url(#strapTexture2)" />
+                <line x1="15" y1="0" x2="15" y2="74" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="3 2" />
+                <line x1="33" y1="0" x2="33" y2="74" stroke="#ffffff" stroke-opacity="0.25" stroke-width="0.8" stroke-dasharray="3 2" />
+                <rect x="11" y="70" width="26" height="11" rx="2" fill="url(#metalChrome2)" stroke="#02140e" stroke-width="0.8" />
+                <line x1="13" y1="75.5" x2="35" y2="75.5" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.2" />
+                <circle cx="24" cy="86" r="5.5" fill="none" stroke="url(#metalChrome2)" stroke-width="2.6" />
+                <path d="M 24 90 C 18 96, 18 105, 24 108 C 30 105, 30 96, 24 90 Z" fill="url(#hookSteel2)" stroke="#02140e" stroke-width="0.8" />
+                <ellipse cx="24" cy="107" rx="2.6" ry="4.5" fill="#010805" opacity="0.9" />
+              </svg>
+
+              <!-- PVC Teacher Identity Card -->
+              <div class="pvc-card pvc-teacher">
+                <div class="punched-slot">
+                  <div class="slot-hole">
+                    <div class="slot-inner"></div>
+                  </div>
+                </div>
+
+                <div class="card-header-bar">
+                  <div class="emv-chip" title="EMV Security Chip">
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                  </div>
+
+                  <div class="card-brand-meta">
+                    <div class="brand-logo-row">
+                      <span>eSarathi</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                        <path d="M8.5 15.7a6.5 6.5 0 0 1 7 0" />
+                        <circle cx="12" cy="19" r="1" fill="currentColor" />
+                      </svg>
+                    </div>
+                    <span class="card-inst-text">eSARATHI FACULTY</span>
+                  </div>
+                </div>
+
+                <div class="card-photo-section">
+                  <div class="photo-window">
+                    <img src="assets/shubham-id-body.jpg" alt="Shubham Chaurasia" onerror="this.src='assets/shubham-id-portrait.jpg'">
+                    <div class="photo-glass-shine"></div>
+                    <div class="photo-id-tag">FACULTY</div>
+                  </div>
+
+                  <h4 class="card-name-title">Shubham Chaurasia</h4>
+                  <div class="card-role-pill">
+                    <span class="dot"></span>
+                    <span>Verified Educator</span>
+                  </div>
+                </div>
+
+                <div class="card-body-details">
+                  <div class="card-tags-row">
+                    <span class="card-tag">Principal Architect</span>
+                    <span class="card-tag">8+ Yrs Exp</span>
+                  </div>
+
+                  <span class="card-pass-label">OFFICIAL FACULTY PASS</span>
+
+                  <div class="barcode-svg" id="home-teacher-barcode" aria-hidden="true"></div>
+
+                  <div class="card-footer-row">
+                    <span class="card-id-code">TUT-2026-MS</span>
+                    <span class="card-verified-badge">
+                      <span class="ping"></span>
+                      <span>VERIFIED</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p class="drag-hint">✦ Drag or tap to swing</p>
+          </div>
+
+          <a href="teacher.html" class="btn-badge-open btn-badge-open-teacher">
+            Open Full Teacher Page →
+          </a>
         </div>
       </div>
     </section>
@@ -1651,6 +2444,118 @@
           }
         });
       });
+
+    
+    // ─── Initialize Home Page Hanging Cards ──────────────────
+    (function initHomeHangingCards() {
+      // Barcodes
+      ['home-student-barcode', 'home-teacher-barcode'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        for (var i = 0; i < 28; i++) {
+          var bar = document.createElement('div');
+          bar.className = 'barcode-bar';
+          bar.style.width = (i % 5 === 0) ? '2.5px' : (i % 2 === 0) ? '1.5px' : '1px';
+          bar.style.height = (55 + Math.sin(i * 1.4) * 40) + '%';
+          el.appendChild(bar);
+        }
+      });
+
+      // Physics helper
+      function attachPhysics(cardId, initialKick) {
+        var card = document.getElementById(cardId);
+        if (!card) return;
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (prefersReduced) return;
+
+        var angle = 0;
+        var vel = 0;
+        var DAMPING = 0.94;
+        var GRAVITY = 3200;
+        var ropeLength = 70;
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragAngle0 = 0;
+        var prevAngle = 0;
+        var prevTime = null;
+        var rafId = null;
+
+        function tick(now) {
+          if (!prevTime) prevTime = now;
+          var dt = Math.min((now - prevTime) / 1000, 0.033);
+          prevTime = now;
+
+          if (!isDragging) {
+            var effectiveL = (ropeLength + 130) / 100;
+            var accel = -(GRAVITY / 900 / effectiveL) * Math.sin(angle);
+            vel = (vel + accel * dt) * Math.pow(DAMPING, dt * 60);
+            angle += vel * dt;
+
+            if (Math.abs(vel) > 0.002 || Math.abs(angle) > 0.002) {
+              rafId = requestAnimationFrame(tick);
+            } else {
+              angle = 0;
+              vel = 0;
+              rafId = null;
+            }
+          } else {
+            if (dt > 0) vel = (angle - prevAngle) / dt;
+            prevAngle = angle;
+            rafId = requestAnimationFrame(tick);
+          }
+
+          var deg = angle * (180 / Math.PI);
+          var degY = deg * 0.35;
+          card.style.transform = 'perspective(800px) rotate(' + deg + 'deg) rotateY(' + degY + 'deg)';
+        }
+
+        function start() {
+          if (rafId) cancelAnimationFrame(rafId);
+          prevTime = null;
+          rafId = requestAnimationFrame(tick);
+        }
+
+        card.addEventListener('pointerdown', function(e) {
+          card.setPointerCapture(e.pointerId);
+          isDragging = true;
+          dragStartX = e.clientX;
+          dragAngle0 = angle;
+          prevAngle = angle;
+          start();
+        });
+
+        card.addEventListener('pointermove', function(e) {
+          if (!isDragging) return;
+          var dx = e.clientX - dragStartX;
+          var L = ropeLength + 120;
+          angle = Math.max(-0.85, Math.min(0.85, dragAngle0 - dx / L));
+        });
+
+        function onEnd() {
+          if (!isDragging) return;
+          try { card.releasePointerCapture(e.pointerId); } catch(err) {}
+          isDragging = false;
+        }
+
+        card.addEventListener('pointerup', onEnd);
+        card.addEventListener('pointercancel', onEnd);
+
+        card.addEventListener('click', function() {
+          if (Math.abs(vel) < 0.1 && Math.abs(angle) < 0.05) {
+            vel = 2.8;
+            start();
+          }
+        });
+
+        setTimeout(function() {
+          vel = initialKick || 1.4;
+          start();
+        }, 800);
+      }
+
+      attachPhysics('home-student-assembly', 1.6);
+      attachPhysics('home-teacher-assembly', -1.6);
+    })();
 
     })();
   </script>
