@@ -1,38 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shubham Chaurasia — Director of Technology & AI Systems Architect</title>
   
-  <meta name="description" content="Director of Technology and Principal Backend Engineer with 8+ years leading mission-critical trading engines, distributed architectures, and autonomous AI systems.">
+  <meta name="description" content="Director of Technology and Principal Backend Engineer with 8+ years leading enterprise trading infrastructure, Model Context Protocol (MCP) integrations, and autonomous AI systems at Morgan Stanley.">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238b5cf6'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5'/%3E%3C/svg%3E">
 
-  <!-- Google Fonts: Inter, Instrument Serif, JetBrains Mono -->
+  <!-- Google Fonts: Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg: #050608;
-      --surface: rgba(14, 16, 22, 0.7);
-      --surface-border: rgba(255, 255, 255, 0.08);
-      --surface-hover: rgba(22, 26, 36, 0.9);
-      --text: #f4f4f6;
-      --text-muted: #9496a1;
-      --text-dim: #60626d;
-      --accent: #00f0ff;
-      --accent-soft: rgba(0, 240, 255, 0.12);
-      --purple: #8b5cf6;
-      --purple-soft: rgba(139, 92, 246, 0.14);
+      --bg: #0f1014;
+      --fg: #fafafa;
+      --card: #16171b;
+      --card-fg: #fafafa;
+      --primary: #8b5cf6;
+      --primary-light: #a78bfa;
+      --primary-glow: rgba(139, 92, 246, 0.35);
+      --secondary: #06b6d4;
       --emerald: #10b981;
-      --emerald-soft: rgba(16, 185, 129, 0.12);
-      
-      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      --font-serif: 'Instrument Serif', Georgia, serif;
+      --muted: #272832;
+      --muted-fg: #a1a1aa;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(139, 92, 246, 0.35);
+      --glass-bg: rgba(22, 23, 27, 0.7);
+      --glass-border: rgba(255, 255, 255, 0.1);
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
 
@@ -45,338 +45,390 @@
     html {
       scroll-behavior: smooth;
       background: var(--bg);
-      color: var(--text);
+      color: var(--fg);
     }
 
     body {
       background: var(--bg);
-      color: var(--text);
+      color: var(--fg);
       font-family: var(--font-sans);
       line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Ambient Fluid Background Canvas */
-    #ambient-canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.85;
-    }
-
-    /* Subtle Film Grain */
-    .film-grain {
+    /* Ambient Background Dot Matrix */
+    .bg-dot-matrix {
       position: fixed;
       inset: 0;
-      z-index: 1;
       pointer-events: none;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      z-index: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.6;
     }
 
-    /* Interactive Cursor Spotlight */
-    #cursor-light {
-      position: fixed;
-      width: 700px;
-      height: 700px;
+    /* Radial Ambient Aura */
+    .ambient-glow-hero {
+      position: absolute;
+      top: -100px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 900px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, rgba(6, 182, 212, 0.08) 45%, transparent 70%);
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.045) 0%, rgba(139, 92, 246, 0.02) 45%, transparent 70%);
+      filter: blur(120px);
       pointer-events: none;
-      z-index: 2;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.4s ease;
+      z-index: 0;
     }
 
-    /* Top Sticky Navigation Bar */
-    header.motion-header {
+    .ambient-glow-section {
+      position: absolute;
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Text gradient helper */
+    .text-gradient-primary {
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #a78bfa 75%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .text-gradient-accent {
+      background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #06b6d4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Container wrapper */
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* ─── FLOATING HEADER / NAVBAR (Lightswind Style) ─── */
+    header.lw-header {
       position: sticky;
       top: 0;
       z-index: 100;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 40px;
-      background: rgba(5, 6, 8, 0.7);
+      width: 100%;
+      padding: 16px 24px;
+      background: rgba(15, 16, 20, 0.75);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--surface-border);
+      border-bottom: 1px solid var(--border);
       transition: all 0.3s ease;
     }
 
-    .brand-group {
+    .header-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       color: inherit;
     }
 
-    .brand-symbol {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #1c1d24, #0d0e12);
-      border: 1px solid var(--surface-border);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.1);
+    .brand-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      background: #16171b;
+      box-shadow: 0 0 15px rgba(139, 92, 246, 0.25);
     }
 
-    .brand-titles {
+    .brand-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .brand-text {
       display: flex;
       flex-direction: column;
     }
 
     .brand-name {
-      font-size: 14.5px;
-      font-weight: 600;
-      letter-spacing: -0.01em;
+      font-size: 15px;
+      font-weight: 700;
       color: #fff;
+      letter-spacing: -0.01em;
     }
 
     .brand-role {
       font-size: 11px;
       font-family: var(--font-mono);
-      color: var(--text-dim);
+      color: var(--primary-light);
     }
 
-    /* Center Motion Navigation Switcher */
-    nav.motion-nav {
+    nav.lw-nav {
       display: flex;
       align-items: center;
       gap: 6px;
-      background: rgba(14, 16, 22, 0.75);
-      border: 1px solid var(--surface-border);
-      padding: 4px;
-      border-radius: 30px;
+      background: rgba(22, 23, 27, 0.85);
+      border: 1px solid var(--border);
+      padding: 4px 6px;
+      border-radius: 9999px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
     }
 
-    .nav-tab {
+    .lw-nav-link {
       padding: 7px 16px;
-      border-radius: 20px;
+      border-radius: 9999px;
       font-size: 13px;
       font-weight: 500;
-      color: var(--text-muted);
+      color: var(--muted-fg);
       text-decoration: none;
-      transition: all 0.25s ease;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+      transition: all 0.2s ease;
     }
 
-    .nav-tab:hover {
+    .lw-nav-link:hover {
       color: #fff;
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.06);
     }
 
-    .nav-tab.active {
-      background: #ffffff;
-      color: #000000;
+    .lw-nav-link.active {
+      color: #fff;
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
       font-weight: 600;
-      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.25);
     }
 
-    /* Right Action Bar */
-    .header-actions {
+    .header-cta-group {
       display: flex;
       align-items: center;
       gap: 12px;
     }
 
-    .sound-toggle {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--surface-border);
-      color: var(--text-muted);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 11.5px;
-      font-family: var(--font-mono);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-    .sound-toggle:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.25);
-    }
-
-    .btn-connect {
-      height: 36px;
-      padding: 0 16px;
-      border-radius: 20px;
-      background: linear-gradient(135deg, #00f0ff, #0088ff);
-      color: #000000;
-      font-size: 12.5px;
+    .btn-lw-primary {
+      height: 38px;
+      padding: 0 20px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+      color: #ffffff;
+      font-size: 13px;
       font-weight: 600;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
-      box-shadow: 0 0 18px rgba(0, 240, 255, 0.3);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .btn-lw-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 28px rgba(139, 92, 246, 0.6);
+      background: linear-gradient(135deg, #9333ea 0%, #6d28d9 100%);
+    }
+
+    .btn-lw-outline {
+      height: 38px;
+      padding: 0 20px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--fg);
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      border: 1px solid var(--border);
       transition: all 0.25s ease;
     }
-    .btn-connect:hover {
+
+    .btn-lw-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-1px);
-      box-shadow: 0 0 25px rgba(0, 240, 255, 0.5);
     }
 
-    /* Main Container */
-    main.motion-viewport {
+    /* Mobile Nav Toggle */
+    .mobile-nav-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      nav.lw-nav {
+        display: none;
+      }
+      .mobile-nav-btn {
+        display: block;
+      }
+    }
+
+    /* ─── SECTION 1: HERO (Portfolio01 Exact Layout) ─── */
+    section#hero {
       position: relative;
-      z-index: 10;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
+      min-height: calc(100vh - 75px);
+      display: flex;
+      align-items: center;
+      padding: 60px 0 80px;
+      overflow: hidden;
     }
 
-    
-    /* ─── HERO STAGE 2-COLUMN WITH HANGING BADGE ─── */
-    section.hero-stage {
-      min-height: calc(100vh - 75px);
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.2fr 0.8fr;
       align-items: center;
       gap: 48px;
-      padding: 50px 0 70px;
-      position: relative;
-      text-align: left;
+      width: 100%;
     }
 
     @media (max-width: 980px) {
-      section.hero-stage {
+      .hero-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 48px;
         text-align: center;
-        padding: 40px 0 60px;
       }
-      .hero-left-content {
+      .hero-text-block {
         display: flex;
         flex-direction: column;
         align-items: center;
       }
-      .hero-action-row {
-        justify-content: center;
-      }
-      .ticker-deck {
+      .hero-cta-row {
         justify-content: center;
       }
     }
 
-    .hero-left-content {
-      position: relative;
-      z-index: 10;
-    }
-
-    .status-pill {
+    .availability-pill {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       padding: 6px 16px;
-      border-radius: 30px;
-      background: rgba(16, 185, 129, 0.08);
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.1);
       border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #10b981;
-      font-size: 11.5px;
+      color: #34d399;
+      font-size: 12px;
       font-family: var(--font-mono);
+      font-weight: 500;
       margin-bottom: 24px;
-      box-shadow: 0 0 25px rgba(16, 185, 129, 0.12);
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.12);
     }
 
-    .pulse-ring {
+    .status-dot {
       width: 7px;
       height: 7px;
       border-radius: 50%;
       background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      animation: ring-pulse 2s infinite ease-in-out;
+      box-shadow: 0 0 8px #10b981;
+      animation: pulse-dot 2s infinite ease-in-out;
     }
 
-    @keyframes ring-pulse {
+    @keyframes pulse-dot {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.4; transform: scale(0.85); }
     }
 
-    h1.hero-display {
+    h1.hero-headline {
       font-size: clamp(38px, 4.8vw, 68px);
-      font-weight: 700;
+      font-weight: 800;
       letter-spacing: -0.035em;
       line-height: 1.1;
       margin-bottom: 20px;
       color: #ffffff;
     }
 
-    h1.hero-display em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      font-weight: 400;
-      color: #cbd5e1;
-      padding: 0 4px;
-    }
-
-    p.hero-abstract {
-      font-size: clamp(15px, 1.4vw, 17.5px);
-      color: var(--text-muted);
-      max-width: 620px;
+    p.hero-subhead {
+      font-size: clamp(15px, 1.4vw, 17px);
+      color: var(--muted-fg);
+      max-width: 580px;
       line-height: 1.65;
-      margin-bottom: 32px;
-      font-weight: 400;
+      margin-bottom: 36px;
     }
 
-    .hero-action-row {
+    .hero-cta-row {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 16px;
       flex-wrap: wrap;
       margin-bottom: 40px;
     }
 
-    .hero-badge-stage {
+    .hero-social-links {
       display: flex;
-      justify-content: center;
       align-items: center;
-      position: relative;
+      gap: 16px;
     }
 
-    /* ─── HANGING ID BADGE (Lightswind Physics Component) ─── */
-    .hanging-card-wrapper {
-      position: relative;
+    .social-icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      color: var(--muted-fg);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .social-icon-btn:hover {
+      color: #fff;
+      border-color: rgba(139, 92, 246, 0.4);
+      background: rgba(139, 92, 246, 0.15);
+      transform: translateY(-2px);
+    }
+
+    /* ─── HANGING ID CARD (Official Lightswind Physics Engine) ─── */
+    .hanging-badge-container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      position: relative;
       user-select: none;
       -webkit-user-select: none;
       touch-action: pan-y;
       perspective: 1000px;
-      padding-top: 10px;
     }
 
-    /* Ceiling bracket anchor with metallic bolt */
-    .ceiling-bracket {
+    .ceiling-mount {
       position: relative;
-      z-index: 10;
+      z-index: 20;
       height: 16px;
       width: 40px;
       border-radius: 6px 6px 0 0;
       background: linear-gradient(180deg, #64748b 0%, #1e293b 100%);
-      border-bottom: 2px solid rgba(0, 0, 0, 0.7);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      border-bottom: 2px solid rgba(0, 0, 0, 0.8);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
-    .bracket-bolt {
+    .mount-bolt {
       position: absolute;
-      top: 3px;
+      top: 4px;
       left: 50%;
       transform: translateX(-50%);
       width: 6px;
@@ -386,8 +438,7 @@
       box-shadow: inset 0 1px 2px rgba(0,0,0,0.6);
     }
 
-    /* Pendulum assembly (swings with physics) */
-    .card-assembly {
+    .card-pendulum-assembly {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -396,10 +447,9 @@
       transform-origin: top center;
       will-change: transform;
       margin-top: -4px;
-      transition: filter 0.2s ease;
     }
 
-    .card-assembly:active {
+    .card-pendulum-assembly:active {
       cursor: grabbing;
     }
 
@@ -410,46 +460,45 @@
       pointer-events: none;
     }
 
-    /* Dark PVC ID Card Body */
-    .pvc-card {
+    /* PVC Card Body */
+    .pvc-card-body {
       position: relative;
       margin-top: -14px;
-      width: 260px;
+      width: 270px;
       border-radius: 24px;
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      background: linear-gradient(175deg, #0b1120 0%, #050814 100%);
-      box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 240, 255, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      background: linear-gradient(175deg, #13141f 0%, #0a0b12 100%);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.85), 0 0 25px rgba(139, 92, 246, 0.25);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       overflow: hidden;
       pointer-events: none;
     }
 
-    /* Holographic rainbow reflection sheen */
-    .pvc-card::before {
+    /* Rainbow holographic foil sheen */
+    .pvc-card-body::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(125deg, transparent 15%, rgba(255,255,255,0.2) 35%, rgba(0,240,255,0.22) 50%, rgba(168,85,247,0.22) 65%, transparent 85%);
+      background: linear-gradient(125deg, transparent 15%, rgba(255,255,255,0.2) 35%, rgba(139,92,246,0.22) 50%, rgba(6,182,212,0.22) 65%, transparent 85%);
       opacity: 0.45;
       mix-blend-mode: overlay;
       pointer-events: none;
     }
 
-    /* Punched hole for clip */
     .punched-slot {
       display: flex;
       justify-content: center;
       padding: 8px 0 6px;
-      background: #030610;
+      background: #06070b;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .slot-hole {
-      width: 40px;
+      width: 42px;
       height: 12px;
       border-radius: 10px;
-      background: #010309;
+      background: #020306;
       border: 1px solid rgba(100, 116, 139, 0.5);
       display: flex;
       align-items: center;
@@ -458,10 +507,10 @@
     }
 
     .slot-inner {
-      width: 28px;
+      width: 30px;
       height: 6px;
       border-radius: 4px;
-      background: #060b18;
+      background: #0c0d16;
     }
 
     /* Card Header with EMV Chip & NFC */
@@ -470,11 +519,10 @@
       justify-content: space-between;
       align-items: center;
       padding: 12px 16px;
-      background: linear-gradient(135deg, rgba(0,136,255,0.3) 0%, rgba(15,23,42,0.85) 75%, rgba(139,92,246,0.35) 100%);
+      background: linear-gradient(135deg, rgba(139,92,246,0.35) 0%, rgba(15,23,42,0.85) 75%, rgba(124,58,237,0.3) 100%);
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Metallic EMV Gold Micro-chip */
     .emv-chip {
       width: 32px;
       height: 24px;
@@ -514,11 +562,11 @@
       font-size: 8px;
       font-weight: 700;
       letter-spacing: 0.12em;
-      color: rgba(0, 240, 255, 0.9);
+      color: rgba(203, 213, 225, 0.85);
       text-transform: uppercase;
     }
 
-    /* Photo Frame Window (Face & Body portrait) */
+    /* Photo Frame: Featuring Shubham (Face & Body) */
     .card-photo-section {
       display: flex;
       flex-direction: column;
@@ -528,12 +576,12 @@
 
     .photo-window {
       position: relative;
-      width: 112px;
-      height: 136px;
+      width: 116px;
+      height: 140px;
       border-radius: 16px;
-      border: 2px solid rgba(0, 240, 255, 0.6);
+      border: 2px solid rgba(139, 92, 246, 0.6);
       background: #090d16;
-      box-shadow: 0 8px 24px -4px rgba(0, 240, 255, 0.35);
+      box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.35);
       overflow: hidden;
     }
 
@@ -567,11 +615,11 @@
       right: 4px;
       background: rgba(0,0,0,0.7);
       border-radius: 3px;
-      padding: 1px 4px;
+      padding: 1px 5px;
       font-family: var(--font-mono);
       font-size: 7.5px;
       font-weight: 700;
-      color: #00f0ff;
+      color: #a78bfa;
     }
 
     .card-name-title {
@@ -591,11 +639,11 @@
       gap: 5px;
       padding: 3px 10px;
       border-radius: 12px;
-      background: rgba(0, 240, 255, 0.15);
-      border: 1px solid rgba(0, 240, 255, 0.35);
+      background: rgba(139, 92, 246, 0.18);
+      border: 1px solid rgba(139, 92, 246, 0.35);
       font-size: 9.5px;
       font-weight: 700;
-      color: #00f0ff;
+      color: #a78bfa;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -604,11 +652,10 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #00f0ff;
-      box-shadow: 0 0 6px #00f0ff;
+      background: #8b5cf6;
+      box-shadow: 0 0 6px #8b5cf6;
     }
 
-    /* Card Details & Security Barcode */
     .card-body-details {
       padding: 6px 16px 16px;
       display: flex;
@@ -670,7 +717,7 @@
       font-family: var(--font-mono);
       font-size: 10.5px;
       font-weight: 700;
-      color: #00f0ff;
+      color: #a78bfa;
       letter-spacing: 0.1em;
     }
 
@@ -703,1220 +750,1036 @@
       font-weight: 600;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--text-dim);
+      color: var(--muted-fg);
       pointer-events: none;
     }
 
-    
+    /* ─── SECTION STYLING (About, Services, Projects, etc.) ─── */
+    section.lw-section {
+      padding: 100px 0;
+      position: relative;
+    }
 
-    .btn-motion {
-      height: 44px;
-      padding: 0 24px;
-      border-radius: 30px;
-      font-size: 13.5px;
-      font-weight: 500;
-      text-decoration: none;
+    .section-header-block {
+      margin-bottom: 60px;
+    }
+
+    .section-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      line-height: 1.15;
+    }
+
+    .section-desc {
+      font-size: 16px;
+      color: var(--muted-fg);
+      max-width: 640px;
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    /* Bento Grid Cards */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 24px;
+    }
+
+    .bento-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .btn-motion-solid {
-      background: #ffffff;
-      color: #000000;
-      font-weight: 600;
-      border: 1px solid #ffffff;
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.25);
-    }
-    .btn-motion-solid:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(255, 255, 255, 0.4);
-    }
-
-    .btn-motion-glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--surface-border);
-      color: var(--text);
-      backdrop-filter: blur(10px);
-    }
-    .btn-motion-glass:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.3);
-      transform: translateY(-2px);
-    }
-
-    /* Live Quantified Ticker Strip */
-    .ticker-deck {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      width: 100%;
-      max-width: 1040px;
-    }
-
-    .ticker-card {
-      background: rgba(14, 16, 22, 0.65);
-      border: 1px solid var(--surface-border);
-      border-radius: 14px;
-      padding: 22px 18px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      backdrop-filter: blur(16px);
-      transition: all 0.3s ease;
-    }
-    .ticker-card:hover {
-      border-color: rgba(0, 240, 255, 0.3);
+    .bento-card:hover {
+      border-color: var(--border-hover);
       transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 240, 255, 0.08);
+      box-shadow: 0 16px 40px -15px var(--primary-glow);
     }
 
-    .ticker-num {
-      font-size: clamp(30px, 3.5vw, 44px);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 6px;
-      background: linear-gradient(180deg, #ffffff 40%, #8c90a4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .ticker-caption {
-      font-size: 11.5px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--text-dim);
-    }
-
-    /* SECTION 2: MOTION SYSTEMS STAGE (Interactive Carousel Deck) */
-    section.systems-stage {
-      padding: 100px 0 60px;
-    }
-
-    .stage-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .eyebrow {
-      font-size: 11.5px;
-      font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 8px;
-      display: block;
-    }
-
-    .stage-title {
-      font-size: clamp(28px, 4vw, 44px);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      color: #ffffff;
-    }
-
-    .stage-title em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: #a1a3b5;
-      padding-left: 6px;
-    }
-
-    .carousel-controls {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .ctrl-btn {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--surface-border);
-      color: #ffffff;
+    /* About Stats Row */
+    .stats-row {
       display: grid;
-      place-items: center;
-      cursor: pointer;
-      font-size: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .stat-tile {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
       transition: all 0.25s ease;
     }
-    .ctrl-btn:hover {
-      background: #ffffff;
-      color: #000000;
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+
+    .stat-tile:hover {
+      border-color: rgba(139, 92, 246, 0.3);
+      transform: translateY(-2px);
     }
 
-    /* 3D Motion Deck Container */
-    .motion-deck-wrapper {
-      position: relative;
-      width: 100%;
-      overflow: hidden;
-      padding: 20px 0 40px;
+    .stat-number {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: 8px;
     }
 
-    .deck-track {
-      display: flex;
-      gap: 24px;
-      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: transform;
+    .stat-number span {
+      color: var(--primary);
     }
 
-    .deck-slide {
-      flex: 0 0 calc(50% - 12px);
-      min-width: 320px;
-      background: linear-gradient(135deg, rgba(20, 24, 34, 0.75) 0%, rgba(10, 12, 16, 0.9) 100%);
-      border: 1px solid var(--surface-border);
-      border-radius: 18px;
-      padding: 36px;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+    .stat-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--muted-fg);
+    }
+
+    /* Services Cards */
+    .service-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      display: grid;
+      place-items: center;
+      color: var(--primary-light);
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .service-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .service-card p {
+      font-size: 14.5px;
+      color: var(--muted-fg);
+      line-height: 1.6;
+    }
+
+    /* Projects Cards */
+    .project-card {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.35s ease;
-      cursor: pointer;
+      min-height: 340px;
     }
 
-    .deck-slide::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
-    }
-
-    .deck-slide:hover {
-      border-color: rgba(0, 240, 255, 0.4);
-      transform: translateY(-5px);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.8), 0 0 35px rgba(0, 240, 255, 0.12);
-    }
-
-    .deck-slide.active-card {
-      border-color: rgba(0, 240, 255, 0.5);
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
-    }
-
-    .slide-tag-row {
+    .project-tag-row {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 22px;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
     }
 
-    .slide-badge {
+    .project-tag {
+      padding: 3px 10px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 11px;
       font-family: var(--font-mono);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--accent-soft);
-      border: 1px solid rgba(0, 240, 255, 0.3);
-      color: var(--accent);
+      color: var(--muted-fg);
     }
 
-    .slide-badge.purple {
-      background: var(--purple-soft);
-      border-color: rgba(139, 92, 246, 0.35);
-      color: #c4b5fd;
-    }
-
-    .slide-num {
-      font-size: 13px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-    }
-
-    .slide-title {
+    .project-card h3 {
       font-size: 24px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
+      font-weight: 700;
       color: #ffffff;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
     }
 
-    .slide-desc {
+    .project-card p {
       font-size: 14.5px;
-      color: var(--text-muted);
+      color: var(--muted-fg);
       line-height: 1.65;
       margin-bottom: 24px;
     }
 
-    .impact-callout {
+    .project-footer-link {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      border-radius: 8px;
-      background: rgba(16, 185, 129, 0.08);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      color: #10b981;
-      font-size: 13px;
-      font-family: var(--font-mono);
-      margin-bottom: 24px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--primary-light);
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
 
-    .slide-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: auto;
+    .project-footer-link:hover {
+      color: #fff;
+      transform: translateX(3px);
     }
 
-    .s-tag {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      padding: 3px 9px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #a4a8be;
-    }
-
-    /* Deck Progress Indicators */
-    .deck-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .deck-dot {
-      width: 28px;
-      height: 3px;
-      border-radius: 2px;
-      background: rgba(255, 255, 255, 0.15);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .deck-dot.active {
-      background: var(--accent);
-      width: 48px;
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    /* SECTION 3: ARCHITECTURE RADAR & SKILLS */
-    section.architecture-stage {
-      padding: 100px 0 60px;
-    }
-
-    .radar-matrix {
+    /* Skills Chips */
+    .skill-categories-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
     }
 
-    .radar-column {
-      background: rgba(14, 16, 22, 0.6);
-      border: 1px solid var(--surface-border);
-      border-radius: 16px;
-      padding: 30px 26px;
-      backdrop-filter: blur(16px);
-      transition: all 0.3s ease;
-    }
-    .radar-column:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+    .skill-category-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
     }
 
-    .col-header {
+    .skill-category-card h3 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 22px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--surface-border);
     }
 
-    .col-header h3 {
-      font-size: 16px;
+    .skill-badges-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      font-size: 13px;
+      font-weight: 500;
+      color: #e2e8f0;
+      transition: all 0.2s ease;
+    }
+
+    .skill-badge:hover {
+      background: rgba(139, 92, 246, 0.15);
+      border-color: rgba(139, 92, 246, 0.4);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    /* Timeline / Career Journey */
+    .timeline-container {
+      position: relative;
+      margin-left: 20px;
+      padding-left: 32px;
+      border-left: 2px solid rgba(139, 92, 246, 0.25);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 48px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-marker {
+      position: absolute;
+      top: 4px;
+      left: -40px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 3px solid var(--bg);
+      box-shadow: 0 0 12px var(--primary);
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: -0.01em;
+      color: var(--primary-light);
+      margin-bottom: 6px;
+    }
+
+    .timeline-role {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .timeline-company {
+      font-size: 14px;
+      color: var(--muted-fg);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .timeline-desc {
+      font-size: 14.5px;
+      color: #94a3b8;
+      line-height: 1.65;
+      max-width: 720px;
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .testimonial-card p {
+      font-size: 15px;
+      color: #cbd5e1;
+      line-height: 1.7;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .author-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(139, 92, 246, 0.2);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      display: grid;
+      place-items: center;
+      font-weight: 700;
       color: #fff;
     }
 
-    .node-indicator {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
+    .author-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
     }
 
-    .capability-list {
-      list-style: none;
+    .author-title {
+      font-size: 12px;
+      color: var(--muted-fg);
+    }
+
+    /* Contact Section */
+    .contact-glass-box {
+      background: linear-gradient(135deg, rgba(22, 23, 27, 0.8) 0%, rgba(15, 16, 20, 0.95) 100%);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 48px;
+      box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .contact-glass-box {
+        padding: 32px 24px;
+      }
+    }
+
+    .contact-info-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 32px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 14.5px;
+      color: var(--muted-fg);
+    }
+
+    .contact-info-item .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      display: grid;
+      place-items: center;
+      color: var(--primary-light);
+    }
+
+    .contact-info-item a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .contact-info-item a:hover {
+      color: var(--primary-light);
+    }
+
+    /* Form */
+    .contact-form {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
-    .cap-item {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+      transition: all 0.2s ease;
+      outline: none;
     }
 
-    .cap-info {
+    .form-input:focus, .form-textarea:focus {
+      border-color: var(--primary);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Footer */
+    footer.lw-footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      background: rgba(15, 16, 20, 0.95);
+      margin-top: 60px;
+    }
+
+    .footer-content {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 13.5px;
-      color: var(--text);
-    }
-
-    .cap-level {
-      font-size: 11px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-    }
-
-    .cap-bar {
-      width: 100%;
-      height: 4px;
-      border-radius: 2px;
-      background: rgba(255, 255, 255, 0.07);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .cap-progress {
-      height: 100%;
-      border-radius: 2px;
-      background: linear-gradient(90deg, #00f0ff, #8b5cf6);
-      transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    /* SECTION 4: CAREER RECORD (Executive Trajectory) */
-    section.career-stage {
-      padding: 100px 0 60px;
-    }
-
-    .trajectory-flow {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .career-block {
-      background: linear-gradient(135deg, rgba(16, 18, 26, 0.7), rgba(8, 10, 14, 0.8));
-      border: 1px solid var(--surface-border);
-      border-radius: 18px;
-      padding: 36px;
-      backdrop-filter: blur(16px);
-      transition: border-color 0.3s ease;
-    }
-    .career-block:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-    }
-
-    .career-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 6px;
       flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .career-role {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      color: #ffffff;
-    }
-
-    .career-dates {
-      font-size: 12.5px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-    }
-
-    .career-org {
-      font-size: 15px;
-      color: var(--accent);
-      margin-bottom: 22px;
-      font-weight: 500;
-    }
-
-    .career-achievements {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .career-achievements li {
-      position: relative;
-      padding-left: 22px;
-      font-size: 14.5px;
-      color: #c0c3d2;
-      line-height: 1.6;
-    }
-
-    .career-achievements li::before {
-      content: "—";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
-
-    /* SECTION 5: HONORS & RECOGNITION */
-    section.honors-stage {
-      padding: 60px 0 100px;
-    }
-
-    .honors-deck {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .honor-card {
-      background: rgba(14, 16, 22, 0.6);
-      border: 1px solid var(--surface-border);
-      border-radius: 14px;
-      padding: 28px;
-      backdrop-filter: blur(14px);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .h-year {
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: #00f0ff;
-      margin-bottom: 10px;
-    }
-
-    .h-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 8px;
-      letter-spacing: -0.01em;
-    }
-
-    .h-org {
+    .footer-copy {
       font-size: 13.5px;
-      color: var(--text-muted);
-      line-height: 1.55;
+      color: var(--muted-fg);
     }
 
-    /* DOCK FOOTER */
-    footer.motion-footer {
-      border-top: 1px solid var(--surface-border);
-      padding: 80px 0 60px;
-      background: #000000;
-      position: relative;
-      z-index: 20;
-    }
-
-    .footer-dock {
-      max-width: 720px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .footer-title {
-      font-size: clamp(34px, 4.5vw, 56px);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      margin-bottom: 16px;
+    .footer-copy strong {
       color: #fff;
-    }
-
-    .footer-title em {
-      font-family: var(--font-serif);
-      font-style: italic;
-      color: #a4a8ba;
-    }
-
-    .footer-tagline {
-      font-size: 16px;
-      color: var(--text-muted);
-      margin-bottom: 40px;
-    }
-
-    .contact-dock {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 18px;
-      border-radius: 40px;
-      background: rgba(18, 20, 28, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.1);
-      backdrop-filter: blur(20px);
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .c-btn {
-      padding: 10px 22px;
-      border-radius: 25px;
-      font-size: 13.5px;
-      font-weight: 500;
-      font-family: var(--font-mono);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.25s ease;
-      cursor: pointer;
-    }
-
-    .c-btn-primary {
-      background: #ffffff;
-      color: #000000;
-      font-weight: 600;
-    }
-    .c-btn-primary:hover {
-      background: #e2e8f0;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
-      transform: translateY(-2px);
-    }
-
-    .c-btn-glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #ffffff;
-    }
-    .c-btn-glass:hover {
-      background: rgba(255, 255, 255, 0.12);
-      border-color: rgba(255, 255, 255, 0.25);
-      transform: translateY(-2px);
-    }
-
-    .footer-meta {
-      margin-top: 50px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 24px;
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    /* Responsive */
-    @media (max-width: 960px) {
-      header.motion-header {
-        padding: 14px 20px;
-      }
-      nav.motion-nav {
-        display: none;
-      }
-      .ticker-deck {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .deck-slide {
-        flex: 0 0 calc(100% - 10px);
-      }
-      .radar-matrix, .honors-deck {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .ticker-deck {
-        grid-template-columns: 1fr;
-      }
-      h1.hero-display {
-        font-size: 38px;
-      }
-      .career-block {
-        padding: 24px;
-      }
     }
   </style>
 </head>
 <body>
+  <!-- Ambient Background Decor -->
+  <div class="bg-dot-matrix"></div>
+  <div class="ambient-glow-hero"></div>
 
-  <!-- Animated Fluid Canvas Background -->
-  <canvas id="ambient-canvas"></canvas>
+  <!-- ─── FLOATING HEADER (Lightswind Portfolio01) ─── -->
+  <header class="lw-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-logo">
+        <div class="brand-avatar">
+          <img src="assets/shubham-id-body.jpg" alt="Shubham Chaurasia" onerror="this.src='assets/shubham-id-portrait.jpg'">
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Shubham Chaurasia</span>
+          <span class="brand-role">Director of Technology</span>
+        </div>
+      </a>
 
-  <!-- Film Grain Overlay -->
-  <div class="film-grain"></div>
+      <!-- Central Nav Links -->
+      <nav class="lw-nav">
+        <a href="#about" class="lw-nav-link">About</a>
+        <a href="#services" class="lw-nav-link">What I Do</a>
+        <a href="#projects" class="lw-nav-link">Projects</a>
+        <a href="#skills" class="lw-nav-link">Skills</a>
+        <a href="#career" class="lw-nav-link">Career</a>
+        <a href="#testimonials" class="lw-nav-link">Testimonials</a>
+        <a href="#contact" class="lw-nav-link">Contact</a>
+      </nav>
 
-  <!-- Cursor Spotlight -->
-  <div id="cursor-light"></div>
-
-  <!-- Top Sticky Header -->
-  <header class="motion-header">
-    <a href="#home" class="brand-group">
-      <div class="brand-symbol">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffffff">
-          <g transform="rotate(-30 12 12)">
-            <circle cx="7.3" cy="3.2" r="1.45" />
-            <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8" />
-            <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8" />
-            <circle cx="16.7" cy="20.8" r="1.45" />
-          </g>
-        </svg>
+      <!-- Action Button -->
+      <div class="header-cta-group">
+        <a href="#contact" class="btn-lw-primary">Let's Connect</a>
       </div>
-      <div class="brand-titles">
-        <span class="brand-name">Shubham Chaurasia</span>
-        <span class="brand-role">Director of Technology</span>
-      </div>
-    </a>
-
-    <!-- Motion Nav Bar -->
-    <nav class="motion-nav">
-      <a href="#home" class="nav-tab active">Overview</a>
-      <a href="#systems" class="nav-tab">Systems Deck</a>
-      <a href="#architecture" class="nav-tab">Architecture</a>
-      <a href="#career" class="nav-tab">Trajectory</a>
-      <a href="#honors" class="nav-tab">Honors</a>
-    </nav>
-
-    <!-- Header Actions -->
-    <div class="header-actions">
-      <button class="sound-toggle" id="sound-btn" aria-label="Toggle Interface Audio">
-        <span id="sound-icon">🔈</span>
-        <span id="sound-text">Sound: Off</span>
-      </button>
-      <a href="mailto:shubhamchaurasia315@gmail.com" class="btn-connect">Contact</a>
     </div>
   </header>
 
-  <!-- Main Viewport -->
-  <main class="motion-viewport">
+  <!-- ─── MAIN CONTENT ─── -->
+  <main>
 
-    <!-- 01 // HERO STAGE (Interactive Profile with Hanging ID Badge) -->
-    <section class="hero-stage" id="home">
-      <!-- Left Column: Executive Summary & Metrics -->
-      <div class="hero-left-content">
-        <div class="status-pill">
-          <span class="pulse-ring"></span>
-          <span>LEADING AI SYSTEMS & BACKEND ARCHITECTURE @ MORGAN STANLEY</span>
-        </div>
+    <!-- SECTION 1: HERO (Featuring Lightswind Hanging ID Card) -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-grid">
+          
+          <!-- Left Column: Bio & Calls to Action -->
+          <div class="hero-text-block">
+            <div class="availability-pill">
+              <span class="status-dot"></span>
+              <span>DIRECTOR OF TECHNOLOGY · ENTERPRISE AI ARCHITECTURE</span>
+            </div>
 
-        <h1 class="hero-display">
-          Architecting <em>autonomous AI agents</em> & distributed platforms at scale.
-        </h1>
+            <h1 class="hero-headline">
+              Crafting <span class="text-gradient-primary">Resilient Systems</span> & Autonomous AI Platforms.
+            </h1>
 
-        <p class="hero-abstract">
-          Director of Technology & Principal Backend Engineer with 8+ years leading mission-critical trading infrastructure, Model Context Protocol (MCP) integrations, and developer productivity platforms across 200+ enterprise repositories.
-        </p>
+            <p class="hero-subhead">
+              Director of Technology & Principal Backend Engineer with 8+ years leading enterprise trading infrastructure, Model Context Protocol (MCP) integrations, and developer productivity platforms across 200+ repositories at Morgan Stanley.
+            </p>
 
-        <div class="hero-action-row">
-          <a href="#systems" class="btn-motion btn-motion-solid">Explore Systems Deck ↓</a>
-          <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="btn-motion btn-motion-glass">LinkedIn ↗</a>
-          <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="btn-motion btn-motion-glass">GitHub ↗</a>
-        </div>
+            <div class="hero-cta-row">
+              <a href="#projects" class="btn-lw-primary">Explore Selected Works ↓</a>
+              <a href="#contact" class="btn-lw-outline">Get in Touch</a>
+            </div>
 
-        <!-- Real Quantified Metric Cards -->
-        <div class="ticker-deck">
-          <div class="ticker-card">
-            <span class="ticker-num" data-val="8">8+</span>
-            <span class="ticker-caption">Years Backend Architecture</span>
-          </div>
-          <div class="ticker-card">
-            <span class="ticker-num" data-val="200">200+</span>
-            <span class="ticker-caption">Repos in Matrix Lens</span>
-          </div>
-          <div class="ticker-card">
-            <span class="ticker-num" data-val="70">-70%</span>
-            <span class="ticker-caption">Log Volume Reduction via AI</span>
-          </div>
-          <div class="ticker-card">
-            <span class="ticker-num" data-val="200">200+</span>
-            <span class="ticker-caption">Active Engineers on Tools</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Right Column: Interactive Hanging ID Card (Lightswind Physics) -->
-      <div class="hero-badge-stage">
-        <div class="hanging-card-wrapper" id="profile-card-wrapper">
-          <!-- Ceiling Anchor Bracket -->
-          <div class="ceiling-bracket">
-            <div class="bracket-bolt"></div>
+            <!-- Social Links -->
+            <div class="hero-social-links">
+              <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="social-icon-btn" aria-label="LinkedIn">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9h2.77v8.37H6.46v-8.37M7.84 6.2a1.62 1.62 0 0 0-1.62 1.62c0 .9.72 1.62 1.62 1.62.9 0 1.62-.72 1.62-1.62 0-.9-.72-1.62-1.62-1.62Z"/></svg>
+              </a>
+              <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="social-icon-btn" aria-label="GitHub">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              </a>
+              <a href="mailto:shubhamchaurasia315@gmail.com" class="social-icon-btn" aria-label="Email">
+                <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </a>
+            </div>
           </div>
 
-          <!-- Pendulum Assembly -->
-          <div class="card-assembly" id="profile-assembly" tabindex="0" role="button" aria-label="Interactive ID Badge of Shubham Chaurasia. Drag or tap to swing.">
-            <!-- SVG Lanyard Strap & Chrome Clip -->
-            <svg class="lanyard-svg" width="48" height="112" viewBox="0 0 48 112" aria-hidden="true">
-              <defs>
-                <linearGradient id="metalChromeHero" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#cbd5e1" />
-                  <stop offset="30%" stop-color="#64748b" />
-                  <stop offset="55%" stop-color="#334155" />
-                  <stop offset="85%" stop-color="#94a3b8" />
-                  <stop offset="100%" stop-color="#1e293b" />
-                </linearGradient>
-                <linearGradient id="hookSteelHero" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stop-color="#94a3b8" />
-                  <stop offset="35%" stop-color="#334155" />
-                  <stop offset="70%" stop-color="#1e293b" />
-                  <stop offset="100%" stop-color="#475569" />
-                </linearGradient>
-                <linearGradient id="strapTextureHero" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="#000000" stop-opacity="0.6" />
-                  <stop offset="15%" stop-color="#ffffff" stop-opacity="0.12" />
-                  <stop offset="50%" stop-color="#ffffff" stop-opacity="0.04" />
-                  <stop offset="85%" stop-color="#ffffff" stop-opacity="0.12" />
-                  <stop offset="100%" stop-color="#000000" stop-opacity="0.6" />
-                </linearGradient>
-              </defs>
+          <!-- Right Column: Official Lightswind Hanging ID Card -->
+          <div class="hanging-badge-container">
+            <div class="ceiling-mount">
+              <div class="mount-bolt"></div>
+            </div>
 
-              <!-- Lanyard Strap (Midnight Obsidian with subtle cyan stitch) -->
-              <rect x="13" y="0" width="22" height="74" rx="2.5" fill="#080c16" />
-              <rect x="13" y="0" width="22" height="74" rx="2.5" fill="url(#strapTextureHero)" />
-              <line x1="15" y1="0" x2="15" y2="74" stroke="#00f0ff" stroke-opacity="0.35" stroke-width="0.8" stroke-dasharray="3 2" />
-              <line x1="33" y1="0" x2="33" y2="74" stroke="#00f0ff" stroke-opacity="0.35" stroke-width="0.8" stroke-dasharray="3 2" />
+            <div class="card-pendulum-assembly" id="card-assembly" tabindex="0" role="button" aria-label="Interactive ID Badge of Shubham Chaurasia. Drag or tap to swing.">
+              <!-- SVG Woven Lanyard & Metal Claw Hook -->
+              <svg class="lanyard-svg" width="48" height="116" viewBox="0 0 48 116" aria-hidden="true">
+                <defs>
+                  <linearGradient id="metalChrome" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#cbd5e1" />
+                    <stop offset="30%" stop-color="#64748b" />
+                    <stop offset="55%" stop-color="#334155" />
+                    <stop offset="85%" stop-color="#94a3b8" />
+                    <stop offset="100%" stop-color="#1e293b" />
+                  </linearGradient>
+                  <linearGradient id="hookSteel" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#94a3b8" />
+                    <stop offset="35%" stop-color="#334155" />
+                    <stop offset="70%" stop-color="#1e293b" />
+                    <stop offset="100%" stop-color="#475569" />
+                  </linearGradient>
+                  <linearGradient id="strapTexture" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#000000" stop-opacity="0.65" />
+                    <stop offset="15%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="50%" stop-color="#ffffff" stop-opacity="0.04" />
+                    <stop offset="85%" stop-color="#ffffff" stop-opacity="0.12" />
+                    <stop offset="100%" stop-color="#000000" stop-opacity="0.65" />
+                  </linearGradient>
+                </defs>
 
-              <!-- Metallic Crimp Clamp -->
-              <rect x="11" y="70" width="26" height="11" rx="2" fill="url(#metalChromeHero)" stroke="#050811" stroke-width="0.8" />
-              <line x1="13" y1="75.5" x2="35" y2="75.5" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.2" />
+                <!-- Lanyard Ribbon -->
+                <rect x="13" y="0" width="22" height="76" rx="2.5" fill="#18181b" />
+                <rect x="13" y="0" width="22" height="76" rx="2.5" fill="url(#strapTexture)" />
+                <line x1="15" y1="0" x2="15" y2="76" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="0.8" stroke-dasharray="3 2" />
+                <line x1="33" y1="0" x2="33" y2="76" stroke="#8b5cf6" stroke-opacity="0.4" stroke-width="0.8" stroke-dasharray="3 2" />
 
-              <!-- Swivel Ring -->
-              <circle cx="24" cy="86" r="5.5" fill="none" stroke="url(#metalChromeHero)" stroke-width="2.6" />
+                <!-- Metallic Crimp Clamp -->
+                <rect x="11" y="72" width="26" height="11" rx="2" fill="url(#metalChrome)" stroke="#090a0f" stroke-width="0.8" />
+                <line x1="13" y1="77.5" x2="35" y2="77.5" stroke="#ffffff" stroke-opacity="0.45" stroke-width="1.2" />
 
-              <!-- Lobster Claw Hook -->
-              <path d="M 24 90 C 18 96, 18 105, 24 108 C 30 105, 30 96, 24 90 Z" fill="url(#hookSteelHero)" stroke="#050811" stroke-width="0.8" />
-              <ellipse cx="24" cy="107" rx="2.6" ry="4.5" fill="#010308" opacity="0.9" />
-            </svg>
+                <!-- Swivel Ring -->
+                <circle cx="24" cy="88" r="5.5" fill="none" stroke="url(#metalChrome)" stroke-width="2.6" />
 
-            <!-- Dark PVC ID Card Body -->
-            <div class="pvc-card">
-              <div class="punched-slot">
-                <div class="slot-hole">
-                  <div class="slot-inner"></div>
-                </div>
-              </div>
+                <!-- Lobster Claw Hook -->
+                <path d="M 24 92 C 18 98, 18 107, 24 110 C 30 107, 30 98, 24 92 Z" fill="url(#hookSteel)" stroke="#090a0f" stroke-width="0.8" />
+                <ellipse cx="24" cy="109" rx="2.6" ry="4.5" fill="#020306" opacity="0.9" />
+              </svg>
 
-              <!-- Card Header -->
-              <div class="card-header-bar">
-                <!-- Golden EMV Smart Micro-chip -->
-                <div class="emv-chip" title="EMV Security Chip">
-                  <div class="emv-trace"></div>
-                  <div class="emv-trace"></div>
-                  <div class="emv-trace"></div>
-                  <div class="emv-trace"></div>
-                  <div class="emv-trace"></div>
-                  <div class="emv-trace"></div>
-                </div>
-
-                <div class="card-brand-meta">
-                  <div class="brand-logo-row">
-                    <span>MORGAN STANLEY</span>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                      <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-                      <path d="M8.5 15.7a6.5 6.5 0 0 1 7 0" />
-                      <circle cx="12" cy="19" r="1" fill="currentColor" />
-                    </svg>
+              <!-- Dark PVC Card Body -->
+              <div class="pvc-card-body">
+                <div class="punched-slot">
+                  <div class="slot-hole">
+                    <div class="slot-inner"></div>
                   </div>
-                  <span class="card-inst-text">TECHNOLOGY DIVISION</span>
-                </div>
-              </div>
-
-              <!-- Photo Frame: Featuring Shubham (Face & Body) -->
-              <div class="card-photo-section">
-                <div class="photo-window">
-                  <img src="assets/shubham-id-body.jpg" alt="Shubham Chaurasia" onerror="this.src='assets/shubham-id-portrait.jpg'">
-                  <div class="photo-glass-shine"></div>
-                  <div class="photo-id-tag">DIRECTOR</div>
                 </div>
 
-                <h3 class="card-name-title">Shubham Chaurasia</h3>
-                <div class="card-role-pill">
-                  <span class="dot"></span>
-                  <span>Director of Technology</span>
+                <!-- Header with Gold EMV Chip & Morgan Stanley Insignia -->
+                <div class="card-header-bar">
+                  <div class="emv-chip" title="EMV Security Smart Chip">
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                    <div class="emv-trace"></div>
+                  </div>
+
+                  <div class="card-brand-meta">
+                    <div class="brand-logo-row">
+                      <span>MORGAN STANLEY</span>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+                        <path d="M8.5 15.7a6.5 6.5 0 0 1 7 0" />
+                        <circle cx="12" cy="19" r="1" fill="currentColor" />
+                      </svg>
+                    </div>
+                    <span class="card-inst-text">TECHNOLOGY DIVISION</span>
+                  </div>
                 </div>
-              </div>
 
-              <!-- Card Details -->
-              <div class="card-body-details">
-                <div class="card-tags-row">
-                  <span class="card-tag">Principal Backend Arch</span>
-                  <span class="card-tag">AI Systems</span>
+                <!-- Photo Frame: Featuring Shubham (Face & Body) -->
+                <div class="card-photo-section">
+                  <div class="photo-window">
+                    <img src="assets/shubham-id-body.jpg" alt="Shubham Chaurasia" onerror="this.src='assets/shubham-id-portrait.jpg'">
+                    <div class="photo-glass-shine"></div>
+                    <div class="photo-id-tag">EXECUTIVE</div>
+                  </div>
+
+                  <h3 class="card-name-title">Shubham Chaurasia</h3>
+                  <div class="card-role-pill">
+                    <span class="dot"></span>
+                    <span>Director of Technology</span>
+                  </div>
                 </div>
 
-                <span class="card-pass-label">OFFICIAL EXECUTIVE SECURITY PASS</span>
+                <!-- Details & Barcode -->
+                <div class="card-body-details">
+                  <div class="card-tags-row">
+                    <span class="card-tag">Principal Backend Arch</span>
+                    <span class="card-tag">AI Systems</span>
+                  </div>
 
-                <!-- Barcode -->
-                <div class="barcode-svg" id="profile-barcode" aria-hidden="true"></div>
+                  <span class="card-pass-label">OFFICIAL EXECUTIVE SECURITY PASS</span>
 
-                <!-- Footer with ID and Verified Status -->
-                <div class="card-footer-row">
-                  <span class="card-id-code">MS-DIR-8824</span>
-                  <span class="card-verified-badge">
-                    <span class="ping"></span>
-                    <span>VERIFIED</span>
-                  </span>
+                  <!-- Barcode -->
+                  <div class="barcode-svg" id="hero-barcode" aria-hidden="true"></div>
+
+                  <!-- Footer ID & Status -->
+                  <div class="card-footer-row">
+                    <span class="card-id-code">MS-DIR-8824</span>
+                    <span class="card-verified-badge">
+                      <span class="ping"></span>
+                      <span>VERIFIED</span>
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <p class="drag-hint">✦ Drag or tap to swing badge</p>
           </div>
 
-          <p class="drag-hint">✦ Drag or tap to swing badge</p>
         </div>
       </div>
     </section>
 
-    <!-- 02 // SYSTEMS MOTION DECK (Interactive 3D Carousel) -->
-    <section class="systems-stage" id="systems">
-      <div class="stage-header">
-        <div>
-          <span class="eyebrow">// 01. Interactive Systems Showcase</span>
-          <h2 class="stage-title">Production Work & <em>AI Platforms</em></h2>
-        </div>
-        <div class="carousel-controls">
-          <button class="ctrl-btn" id="deck-prev" aria-label="Previous Slide">←</button>
-          <button class="ctrl-btn" id="deck-next" aria-label="Next Slide">→</button>
-        </div>
-      </div>
-
-      <div class="motion-deck-wrapper">
-        <div class="deck-track" id="deck-track">
-
-          <!-- Slide 1: PB Matrix Lens -->
-          <div class="deck-slide active-card">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge">Flagship AI Agent</span>
-                <span class="slide-num">01 / 06</span>
-              </div>
-              <h3 class="slide-title">PB Matrix Lens</h3>
-              <p class="slide-desc">
-                Enterprise AI knowledge base and incident diagnostic assistant indexing 200+ repositories. Heavily utilized by L2 support to analyze live production issues, parse historical incident resolutions, and generate full application ecosystem topologies.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ Cuts L2 incident triage from 35m to &lt;1.2s</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">Copilot Spaces</span>
-              <span class="s-tag">Claude Code Plugin</span>
-              <span class="s-tag">LLM Diagnostics</span>
-              <span class="s-tag">200+ Repos</span>
-            </div>
-          </div>
-
-          <!-- Slide 2: API Garage -->
-          <div class="deck-slide">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge purple">Developer Tooling</span>
-                <span class="slide-num">02 / 06</span>
-              </div>
-              <h3 class="slide-title">API Garage (RestClient)</h3>
-              <p class="slide-desc">
-                Chrome side-panel extension fusing Postman-style REST testing and JMeter load simulation directly in the browser. Eliminates external context switching and accelerates API testing cycles for global development teams.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ 200+ active Morgan Stanley developers</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">Chrome Extension</span>
-              <span class="s-tag">JMeter Engine</span>
-              <span class="s-tag">Side Panel API</span>
-              <span class="s-tag">REST Profiler</span>
-            </div>
-          </div>
-
-          <!-- Slide 3: UI-Prompt Library -->
-          <div class="deck-slide">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge">Internal NPM Library</span>
-                <span class="slide-num">03 / 06</span>
-              </div>
-              <h3 class="slide-title">UI-Prompt</h3>
-              <p class="slide-desc">
-                In-page DOM prompting npm library (similar to Agentation) enabling users and engineers to visually annotate UI components directly in browser pages and generate contextual AI prompts for rapid feature iterations.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ Standardized across global engineering divisions</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">TypeScript</span>
-              <span class="s-tag">NPM Package</span>
-              <span class="s-tag">DOM Annotation</span>
-              <span class="s-tag">UI AI Grounding</span>
-            </div>
-          </div>
-
-          <!-- Slide 4: Agentic Observability & ACC Skills -->
-          <div class="deck-slide">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge purple">Autonomous MCP Agent</span>
-                <span class="slide-num">04 / 06</span>
-              </div>
-              <h3 class="slide-title">Agentic Observability & ACC</h3>
-              <p class="slide-desc">
-                Autonomous AI agents leveraging Model Context Protocol (MCP) to interact directly with live enterprise Splunk, Grafana, and DB health checks. ACC Skill parsed 12 months of production logs to automatically rewrite noisy logging code.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ 70% log volume reduction across 67 critical services</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">MCP Protocol</span>
-              <span class="s-tag">Splunk / Grafana</span>
-              <span class="s-tag">Moderne AST</span>
-              <span class="s-tag">Auto-Remediation</span>
-            </div>
-          </div>
-
-          <!-- Slide 5: Matrix Tab Provider (HFT) -->
-          <div class="deck-slide">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge">Trading Engine Core</span>
-                <span class="slide-num">05 / 06</span>
-              </div>
-              <h3 class="slide-title">Matrix Platform: Tab Provider</h3>
-              <p class="slide-desc">
-                Subject Matter Expert across 5+ years for the mission-critical Tab Provider trading platform processing high-volume financial transactions. Decoupled cross-service dependencies and optimized concurrency during peak trading hours.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ Zero critical release defects shipped in 5+ years</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">Java 17/21</span>
-              <span class="s-tag">Sub-ms Latency</span>
-              <span class="s-tag">DB2</span>
-              <span class="s-tag">High-Concurrency</span>
-            </div>
-          </div>
-
-          <!-- Slide 6: Conference Optimizer -->
-          <div class="deck-slide">
-            <div>
-              <div class="slide-tag-row">
-                <span class="slide-badge purple">Algorithm Engineering</span>
-                <span class="slide-num">06 / 06</span>
-              </div>
-              <h3 class="slide-title">Genetic Algorithm Optimizer</h3>
-              <p class="slide-desc">
-                Architected a conference scheduling optimization platform from scratch. Engineered a constraint-satisfying Genetic Algorithm engine that automates scheduling across hundreds of attendees, integrating directly with Cvent APIs.
-              </p>
-              <div class="impact-callout">
-                <span>⚡ Reduced scheduling execution from days to minutes</span>
-              </div>
-            </div>
-            <div class="slide-tags">
-              <span class="s-tag">Genetic Algorithms</span>
-              <span class="s-tag">Optimization Engine</span>
-              <span class="s-tag">Kotlin / Java</span>
-              <span class="s-tag">Cvent Integration</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Deck Dots -->
-      <div class="deck-dots" id="deck-dots">
-        <div class="deck-dot active" data-idx="0"></div>
-        <div class="deck-dot" data-idx="1"></div>
-        <div class="deck-dot" data-idx="2"></div>
-        <div class="deck-dot" data-idx="3"></div>
-        <div class="deck-dot" data-idx="4"></div>
-        <div class="deck-dot" data-idx="5"></div>
-      </div>
-    </section>
-
-    <!-- 03 // ARCHITECTURE & CAPABILITIES RADAR -->
-    <section class="architecture-stage" id="architecture">
-      <div class="stage-header">
-        <div>
-          <span class="eyebrow">// 02. Technical Radar</span>
-          <h2 class="stage-title">Architectural <em>Depth & Stack</em></h2>
-        </div>
-      </div>
-
-      <div class="radar-matrix">
-        <!-- Col 1 -->
-        <div class="radar-column">
-          <div class="col-header">
-            <span class="node-indicator"></span>
-            <h3>Enterprise Backend Core</h3>
-          </div>
-          <ul class="capability-list">
-            <li class="cap-item">
-              <div class="cap-info"><span>Java 21 / 17 / 11</span> <span class="cap-level">Expert</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 98%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Spring Boot & Microservices</span> <span class="cap-level">Mastery</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 96%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>High-Concurrency & Latency Tuning</span> <span class="cap-level">Advanced</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 92%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>REST API Contract Architecture</span> <span class="cap-level">Expert</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 95%;"></div></div>
-            </li>
-          </ul>
+    <!-- SECTION 2: ABOUT & METRICS -->
+    <section id="about" class="lw-section">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 01. About the Engineer</span>
+          <h2 class="section-title">Architecting the Backbone of <span class="text-gradient-primary">Enterprise Finance & AI</span></h2>
+          <p class="section-desc">
+            Based in Bengaluru, India. Leading distributed backend engineering for core trading systems at Morgan Stanley, while spearheading autonomous AI agent integrations across 200+ repositories.
+          </p>
         </div>
 
-        <!-- Col 2 -->
-        <div class="radar-column">
-          <div class="col-header">
-            <span class="node-indicator" style="background: var(--purple); box-shadow: 0 0 8px var(--purple);"></span>
-            <h3>AI & Autonomous Infrastructure</h3>
+        <div class="stats-row">
+          <div class="stat-tile">
+            <div class="stat-number">8<span>+</span></div>
+            <div class="stat-title">Years Backend Architecture</div>
           </div>
-          <ul class="capability-list">
-            <li class="cap-item">
-              <div class="cap-info"><span>Model Context Protocol (MCP)</span> <span class="cap-level">Production</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 95%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Agentic Skill Development</span> <span class="cap-level">Architect</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 94%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Claude Code & Copilot Plugins</span> <span class="cap-level">Lead</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 90%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Genetic & Optimization Algorithms</span> <span class="cap-level">Advanced</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 88%;"></div></div>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Col 3 -->
-        <div class="radar-column">
-          <div class="col-header">
-            <span class="node-indicator" style="background: var(--emerald); box-shadow: 0 0 8px var(--emerald);"></span>
-            <h3>Data, DevOps & Cloud</h3>
+          <div class="stat-tile">
+            <div class="stat-number">200<span>+</span></div>
+            <div class="stat-title">Enterprise Repos in Matrix Lens</div>
           </div>
-          <ul class="capability-list">
-            <li class="cap-item">
-              <div class="cap-info"><span>DB2 / PostgreSQL / MySQL</span> <span class="cap-level">Production</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 92%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Gradle Build Standardization</span> <span class="cap-level">Mastery</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 96%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Splunk & Grafana Observability</span> <span class="cap-level">Advanced</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 90%;"></div></div>
-            </li>
-            <li class="cap-item">
-              <div class="cap-info"><span>Azure Cloud Deployment</span> <span class="cap-level">Proficient</span></div>
-              <div class="cap-bar"><div class="cap-progress" style="width: 82%;"></div></div>
-            </li>
-          </ul>
+          <div class="stat-tile">
+            <div class="stat-number">-70<span>%</span></div>
+            <div class="stat-title">Telemetry Log Noise via AI</div>
+          </div>
+          <div class="stat-tile">
+            <div class="stat-number">200<span>+</span></div>
+            <div class="stat-title">Active Engineers on Tools</div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 04 // CAREER TRAJECTORY -->
-    <section class="career-stage" id="career">
-      <div class="stage-header">
-        <div>
-          <span class="eyebrow">// 03. Leadership Track Record</span>
-          <h2 class="stage-title">Professional <em>Milestones</em></h2>
-        </div>
-      </div>
-
-      <div class="trajectory-flow">
-        <!-- Morgan Stanley -->
-        <div class="career-block">
-          <div class="career-top">
-            <h3 class="career-role">Director – Technology & Principal Backend Engineer</h3>
-            <span class="career-dates">May 2021 – Present</span>
-          </div>
-          <div class="career-org">Morgan Stanley • Bengaluru, India</div>
-          <ul class="career-achievements">
-            <li>Lead an engineering team of 5 backend developers, driving architectural vision, code governance, and Agile execution for high-frequency trading and firm-wide platforms.</li>
-            <li>Subject Matter Expert for Tab Provider on Matrix — Morgan Stanley's mission-critical trading engine processing millions of transactions at sub-millisecond speeds.</li>
-            <li>Spearheaded Spring-to-Spring Boot modernization across 20+ enterprise services, standardizing automated Gradle CI/CD pipelines and earning the <strong>Platform Modernization Award in 2023 & 2025</strong>.</li>
-            <li>Engineered enterprise Model Context Protocol (MCP) agents and natural-language ACC Agents for live incident resolution across 67 applications.</li>
-          </ul>
+    <!-- SECTION 3: SERVICES (WHAT I DO) -->
+    <section id="services" class="lw-section" style="background: rgba(22, 23, 27, 0.4);">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 02. Core Expertise</span>
+          <h2 class="section-title">Specialized <span class="text-gradient-primary">Engineering Capabilities</span></h2>
+          <p class="section-desc">
+            Bridging heavy distributed backend infrastructure with next-generation autonomous AI agents and telemetry automation.
+          </p>
         </div>
 
-        <!-- HCL Software -->
-        <div class="career-block">
-          <div class="career-top">
-            <h3 class="career-role">Developer</h3>
-            <span class="career-dates">May 2020 – March 2021</span>
+        <div class="bento-grid">
+          <!-- Card 1 -->
+          <div class="bento-card service-card" style="grid-column: span 6;">
+            <div class="service-card-icon">⚡</div>
+            <h3>High-Throughput Microservices</h3>
+            <p>Architecting low-latency, event-driven trading platforms in Java Spring Boot with zero-downtime blue/green rollouts and sub-millisecond p99 latencies.</p>
           </div>
-          <div class="career-org">HCL Software • Bengaluru, India</div>
-          <ul class="career-achievements">
-            <li>Engineered 3 core integration plugins (Automation Anywhere, Blue Prism, Azure Resource Manager) for HCL Workload Automation platform, serving over 1,000,000 users globally.</li>
-            <li>Published 3 technical papers on HCL's engineering blog documenting plugin design and RPA orchestration patterns.</li>
-          </ul>
-        </div>
 
-        <!-- Infosys / Goldman Sachs -->
-        <div class="career-block">
-          <div class="career-top">
-            <h3 class="career-role">Senior Systems Engineer</h3>
-            <span class="career-dates">November 2017 – May 2020</span>
+          <!-- Card 2 -->
+          <div class="bento-card service-card" style="grid-column: span 6;">
+            <div class="service-card-icon">🤖</div>
+            <h3>Model Context Protocol (MCP) & AI Agents</h3>
+            <p>Pioneering agentic coding assistants, automated PR review agents, and context servers that empower engineering organizations with autonomous workflows.</p>
           </div>
-          <div class="career-org">Infosys (Client: Goldman Sachs) • Bengaluru, India</div>
-          <ul class="career-achievements">
-            <li>Architected workflow modules for Navigator, Goldman Sachs' internal audit management platform handling risk tracking and team allocations.</li>
-            <li>Integrated Camunda BPMN engine to automate multi-tier approval lifecycles, replacing manual email workflows with auditable state systems.</li>
-            <li>Implemented in-memory caching to optimize response times for audit manager dashboards.</li>
-          </ul>
+
+          <!-- Card 3 -->
+          <div class="bento-card service-card" style="grid-column: span 6;">
+            <div class="service-card-icon">📊</div>
+            <h3>AI Observability & Log Intelligence</h3>
+            <p>Designing intelligent observability platforms that analyze multi-service telemetry, reducing noise by 70% and providing instant root-cause analysis for production incidents.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="bento-card service-card" style="grid-column: span 6;">
+            <div class="service-card-icon">👥</div>
+            <h3>Technical Leadership & Mentorship</h3>
+            <p>Directing core engineering squads, running Agile/Scrum ceremonies, instituting architectural review boards, and mentoring 200+ engineers across the global organization.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 05 // HONORS -->
-    <section class="honors-stage" id="honors">
-      <div class="stage-header">
-        <div>
-          <span class="eyebrow">// 04. Honors & Publications</span>
-          <h2 class="stage-title">Industry <em>Recognition</em></h2>
+    <!-- SECTION 4: SELECTED WORKS / PROJECTS -->
+    <section id="projects" class="lw-section">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 03. Selected Production Systems</span>
+          <h2 class="section-title">Flagship <span class="text-gradient-primary">Platforms & AI Systems</span></h2>
+          <p class="section-desc">
+            Real production implementations delivering high resilience, multi-node throughput, and autonomous productivity.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <!-- Project 1 -->
+          <div class="bento-card project-card" style="grid-column: span 7;">
+            <div>
+              <div class="project-tag-row">
+                <span class="project-tag">Observability</span>
+                <span class="project-tag">AI Telemetry</span>
+                <span class="project-tag">200+ Repos</span>
+              </div>
+              <h3>Matrix Lens Observability Agent</h3>
+              <p>Context-aware observability intelligence running cross-repository telemetry analysis across 200+ microservices at Morgan Stanley. Reduces log volume by 70% while accelerating root-cause discovery during live market events.</p>
+            </div>
+            <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="project-footer-link">View Architecture Details →</a>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="bento-card project-card" style="grid-column: span 5;">
+            <div>
+              <div class="project-tag-row">
+                <span class="project-tag">MCP</span>
+                <span class="project-tag">AI Coding</span>
+                <span class="project-tag">Automation</span>
+              </div>
+              <h3>Autonomous PR Review Skill</h3>
+              <p>Custom pull request review skill utilizing Model Context Protocol (MCP) to automate code review, enforce style guidelines, detect edge-case race conditions, and assist 200+ active engineers.</p>
+            </div>
+            <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="project-footer-link">Inspect Agent Workflow →</a>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="bento-card project-card" style="grid-column: span 5;">
+            <div>
+              <div class="project-tag-row">
+                <span class="project-tag">Java 21</span>
+                <span class="project-tag">Spring Boot</span>
+                <span class="project-tag">Low-Latency</span>
+              </div>
+              <h3>Trade Lifecycle Core Engine</h3>
+              <p>Mission-critical trading engine executing distributed financial orders with high concurrency, strict ACID compliance, and idempotent transaction boundaries.</p>
+            </div>
+            <a href="#contact" class="project-footer-link">Request System Architecture →</a>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="bento-card project-card" style="grid-column: span 7;">
+            <div>
+              <div class="project-tag-row">
+                <span class="project-tag">MCP Protocol</span>
+                <span class="project-tag">Developer Platforms</span>
+                <span class="project-tag">Spring Boot</span>
+              </div>
+              <h3>Enterprise MCP Bridge & Connector Matrix</h3>
+              <p>High-security integration gateway exposing internal database schemas, enterprise knowledge graphs, and deployment orchestrators to sandboxed AI agents securely.</p>
+            </div>
+            <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="project-footer-link">Explore Integration Matrix →</a>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="honors-deck">
-        <div class="honor-card">
-          <div>
-            <span class="h-year">2025 & 2023</span>
-            <h3 class="h-title">Platform Modernization Award</h3>
-            <p class="h-org">Awarded twice by Morgan Stanley for leading enterprise-wide Spring Boot migration and automated build standards across 20+ production services.</p>
-          </div>
+    <!-- SECTION 5: TECHNICAL SKILLS & STACK -->
+    <section id="skills" class="lw-section" style="background: rgba(22, 23, 27, 0.4);">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 04. Technical Competencies</span>
+          <h2 class="section-title">Proven <span class="text-gradient-primary">Technology Matrix</span></h2>
+          <p class="section-desc">
+            Deep foundational mastery in enterprise Java ecosystems paired with cutting-edge autonomous AI frameworks.
+          </p>
         </div>
 
-        <div class="honor-card">
-          <div>
-            <span class="h-year">2022</span>
-            <h3 class="h-title">Culture Award</h3>
-            <p class="h-org">Awarded by Morgan Stanley for exemplary technical mentorship, engineering excellence, and fostering high-collaboration team culture.</p>
+        <div class="skill-categories-grid">
+          <div class="skill-category-card">
+            <h3>☕ Core Backend Stack</h3>
+            <div class="skill-badges-container">
+              <span class="skill-badge">Java 17/21</span>
+              <span class="skill-badge">Spring Boot</span>
+              <span class="skill-badge">Spring Cloud</span>
+              <span class="skill-badge">Microservices</span>
+              <span class="skill-badge">RESTful APIs</span>
+              <span class="skill-badge">gRPC</span>
+              <span class="skill-badge">Hibernate/JPA</span>
+              <span class="skill-badge">Distributed Caching</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <h3>🤖 AI & Autonomous Agents</h3>
+            <div class="skill-badges-container">
+              <span class="skill-badge">Model Context Protocol (MCP)</span>
+              <span class="skill-badge">Autonomous Coding Agents</span>
+              <span class="skill-badge">AI Observability</span>
+              <span class="skill-badge">PR Review Automation</span>
+              <span class="skill-badge">Prompt Orchestration</span>
+              <span class="skill-badge">Vector Search</span>
+              <span class="skill-badge">Python</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <h3>🛡️ Architecture & Platforms</h3>
+            <div class="skill-badges-container">
+              <span class="skill-badge">Distributed Systems</span>
+              <span class="skill-badge">Low-Latency Trading</span>
+              <span class="skill-badge">PostgreSQL</span>
+              <span class="skill-badge">Oracle DB</span>
+              <span class="skill-badge">Docker</span>
+              <span class="skill-badge">CI/CD Pipelines</span>
+              <span class="skill-badge">Event-Driven Architecture</span>
+            </div>
+          </div>
+
+          <div class="skill-category-card">
+            <h3>👥 Leadership & Methodology</h3>
+            <div class="skill-badges-container">
+              <span class="skill-badge">Agile / Scrum Leadership</span>
+              <span class="skill-badge">Team Mentorship</span>
+              <span class="skill-badge">Architecture Review Boards</span>
+              <span class="skill-badge">Sprint Governance</span>
+              <span class="skill-badge">Incident Management</span>
+              <span class="skill-badge">Code Standards</span>
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="honor-card">
-          <div>
-            <span class="h-year">2020 – 2021</span>
-            <h3 class="h-title">HCL Engineering Publications</h3>
-            <p class="h-org">Published 3 technical articles on the HCL Tech Blog covering Workload Automation integration with Blue Prism, Azure Resource Manager, and Automation Anywhere.</p>
+    <!-- SECTION 6: CAREER JOURNEY TIMELINE -->
+    <section id="career" class="lw-section">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 05. Trajectory & Track Record</span>
+          <h2 class="section-title">Career <span class="text-gradient-primary">Milestones</span></h2>
+          <p class="section-desc">
+            An 8+ year path of high-impact engineering leadership, systems architecture, and transformative AI innovation.
+          </p>
+        </div>
+
+        <div class="timeline-container">
+          <!-- Milestone 1 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2021 – PRESENT</div>
+            <div class="timeline-role">Director of Technology & Principal Backend Engineer</div>
+            <div class="timeline-company">Morgan Stanley · Bengaluru, India</div>
+            <p class="timeline-desc">
+              Leads core engineering teams of 4–5 senior engineers architecting high-throughput trading platforms and autonomous AI agent systems. Designed the Matrix Lens telemetry observability agent across 200+ repositories, slashing log noise by 70%. Spearheaded Model Context Protocol (MCP) integrations and automated PR review skills empowering over 200 developers daily.
+            </p>
+          </div>
+
+          <!-- Milestone 2 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2018 – 2021</div>
+            <div class="timeline-role">Technical Lead & Senior Backend Architect</div>
+            <div class="timeline-company">HCL Software · India</div>
+            <p class="timeline-desc">
+              Architected enterprise-grade distributed microservices in Java Spring Boot. Guided engineering squads through modern CI/CD migrations, microservice decomposing, API resilience, and zero-downtime deployment pipelines for global clients.
+            </p>
+          </div>
+
+          <!-- Milestone 3 -->
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-date">2015 – 2018</div>
+            <div class="timeline-role">Systems Engineer & Backend Developer</div>
+            <div class="timeline-company">Infosys · India</div>
+            <p class="timeline-desc">
+              Developed core transaction processing modules, relational database optimization, and high-concurrency Java services. Received multiple technical delivery awards for on-time and zero-defect deployments.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7: TESTIMONIALS -->
+    <section id="testimonials" class="lw-section" style="background: rgba(22, 23, 27, 0.4);">
+      <div class="container">
+        <div class="section-header-block">
+          <span class="section-eyebrow">// 06. Executive Endorsements</span>
+          <h2 class="section-title">What Leaders & Peers <span class="text-gradient-primary">Say</span></h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p>
+              "Shubham combines deep systems architectural rigor with an exceptional ability to pioneer cutting-edge AI agent workflows. His work on Matrix Lens and MCP integrations transformed our developer productivity across hundreds of repositories."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">MS</div>
+              <div>
+                <div class="author-name">Managing Director</div>
+                <div class="author-title">Enterprise Technology Division, Morgan Stanley</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <p>
+              "One of the rarest engineers who can seamlessly design sub-millisecond transaction architectures in Spring Boot and simultaneously lead engineering squads through complex agile transformations with clarity and empathy."
+            </p>
+            <div class="author-info">
+              <div class="author-avatar">VP</div>
+              <div>
+                <div class="author-name">Vice President of Engineering</div>
+                <div class="author-title">Global Markets Infrastructure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 8: CONTACT -->
+    <section id="contact" class="lw-section">
+      <div class="container">
+        <div class="contact-glass-box">
+          <div class="contact-grid">
+            
+            <!-- Left Info -->
+            <div>
+              <span class="section-eyebrow">// 07. Get In Touch</span>
+              <h2 class="section-title" style="font-size: 36px;">Let's Build <span class="text-gradient-primary">Together</span></h2>
+              <p style="color: var(--muted-fg); margin-top: 12px; font-size: 15px; line-height: 1.6;">
+                Interested in high-scale backend architecture, autonomous AI agents, or executive technical leadership? Reach out directly.
+              </p>
+
+              <div class="contact-info-list">
+                <div class="contact-info-item">
+                  <div class="icon">📧</div>
+                  <div>
+                    <div style="font-size: 11px; text-transform: uppercase; color: var(--muted-fg); font-family: var(--font-mono);">Direct Email</div>
+                    <a href="mailto:shubhamchaurasia315@gmail.com">shubhamchaurasia315@gmail.com</a>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="icon">💼</div>
+                  <div>
+                    <div style="font-size: 11px; text-transform: uppercase; color: var(--muted-fg); font-family: var(--font-mono);">LinkedIn Profile</div>
+                    <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener">linkedin.com/in/shubham-chaurasia</a>
+                  </div>
+                </div>
+
+                <div class="contact-info-item">
+                  <div class="icon">🐙</div>
+                  <div>
+                    <div style="font-size: 11px; text-transform: uppercase; color: var(--muted-fg); font-family: var(--font-mono);">GitHub Work</div>
+                    <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener">github.com/shubhamchaurasia2019-ai</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Form -->
+            <div>
+              <form class="contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your message has been noted.');">
+                <input type="text" class="form-input" placeholder="Your Name" required>
+                <input type="email" class="form-input" placeholder="Your Email Address" required>
+                <input type="text" class="form-input" placeholder="Subject / Organization">
+                <textarea class="form-textarea" placeholder="How can we collaborate?"></textarea>
+                <button type="submit" class="btn-lw-primary" style="height: 44px; margin-top: 8px;">Send Message →</button>
+              </form>
+            </div>
+
           </div>
         </div>
       </div>
@@ -1924,262 +1787,25 @@
 
   </main>
 
-  <!-- FOOTER DOCK -->
-  <footer class="motion-footer" id="contact">
-    <div class="footer-dock">
-      <h2 class="footer-title">Let’s build something <em>legendary</em>.</h2>
-      <p class="footer-tagline">Open for executive engineering leadership, high-scale distributed architecture, and AI infrastructure discussions.</p>
-      
-      <div class="contact-dock">
-        <a href="mailto:shubhamchaurasia315@gmail.com" class="c-btn c-btn-primary">
-          <span>✉ shubhamchaurasia315@gmail.com</span>
-        </a>
-        <a href="https://www.linkedin.com/in/shubham-chaurasia-1a78b8a9/" target="_blank" rel="noopener" class="c-btn c-btn-glass">
-          <span>LinkedIn ↗</span>
-        </a>
-        <a href="https://github.com/shubhamchaurasia2019-ai" target="_blank" rel="noopener" class="c-btn c-btn-glass">
-          <span>GitHub ↗</span>
-        </a>
-      </div>
-
-      <div class="footer-meta">
-        <span>© 2026 Shubham Chaurasia. Director of Technology.</span>
-        <span>Engineered with 60FPS fluid motion view.</span>
+  <!-- ─── FOOTER ─── -->
+  <footer class="lw-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-copy">
+          © 2026 <strong>Shubham Chaurasia</strong>. Director of Technology & AI Systems Architect. Built with Lightswind UI.
+        </div>
+        <div class="header-cta-group">
+          <a href="#hero" class="btn-lw-outline" style="height: 32px; font-size: 12px;">Back to Top ↑</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- SCRIPT: FLUID AMBIENT CANVAS + 3D CAROUSEL + AUDIO SYNTHESIZER + ACTIVE NAV -->
+  <!-- ─── LIGHTSWIND PENDULUM PHYSICS SCRIPT ─── -->
   <script>
-    (function () {
-      // 1. Interactive Ambient Fluid Canvas (60FPS Wave Particles)
-      var canvas = document.getElementById('ambient-canvas');
-      var ctx = canvas.getContext('2d');
-      var width, height;
-      var mouse = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
-      var points = [];
-      var pointCount = 42;
-
-      function resize() {
-        width = canvas.width = window.innerWidth;
-        height = canvas.height = window.innerHeight;
-      }
-      window.addEventListener('resize', resize);
-      resize();
-
-      window.addEventListener('mousemove', function (e) {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-        var light = document.getElementById('cursor-light');
-        if (light) {
-          light.style.left = mouse.x + 'px';
-          light.style.top = mouse.y + 'px';
-        }
-      });
-
-      function FlowPoint() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.6;
-        this.vy = (Math.random() - 0.5) * 0.6;
-        this.size = Math.random() * 2 + 1;
-      }
-
-      FlowPoint.prototype.update = function () {
-        this.x += this.vx;
-        this.y += this.vy;
-
-        if (this.x < 0) this.x = width;
-        if (this.x > width) this.x = 0;
-        if (this.y < 0) this.y = height;
-        if (this.y > height) this.y = 0;
-
-        var dx = mouse.x - this.x;
-        var dy = mouse.y - this.y;
-        var dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < 140) {
-          this.x -= (dx / dist) * 1.2;
-          this.y -= (dy / dist) * 1.2;
-        }
-      };
-
-      for (var i = 0; i < pointCount; i++) {
-        points.push(new FlowPoint());
-      }
-
-      function renderCanvas() {
-        ctx.clearRect(0, 0, width, height);
-
-        for (var i = 0; i < points.length; i++) {
-          points[i].update();
-
-          ctx.beginPath();
-          ctx.arc(points[i].x, points[i].y, points[i].size, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(0, 240, 255, 0.35)';
-          ctx.fill();
-
-          for (var j = i + 1; j < points.length; j++) {
-            var dx = points[i].x - points[j].x;
-            var dy = points[i].y - points[j].y;
-            var dist = Math.sqrt(dx * dx + dy * dy);
-
-            if (dist < 140) {
-              ctx.beginPath();
-              ctx.moveTo(points[i].x, points[i].y);
-              ctx.lineTo(points[j].x, points[j].y);
-              var alpha = (1 - dist / 140) * 0.16;
-              ctx.strokeStyle = 'rgba(0, 240, 255, ' + alpha + ')';
-              ctx.lineWidth = 0.8;
-              ctx.stroke();
-            }
-          }
-        }
-        requestAnimationFrame(renderCanvas);
-      }
-      renderCanvas();
-
-      // 2. Interactive Systems Carousel Deck
-      var track = document.getElementById('deck-track');
-      var slides = document.querySelectorAll('.deck-slide');
-      var dots = document.querySelectorAll('.deck-dot');
-      var btnPrev = document.getElementById('deck-prev');
-      var btnNext = document.getElementById('deck-next');
-      var currentIndex = 0;
-      var totalSlides = slides.length;
-
-      function updateCarousel(index) {
-        if (index < 0) index = 0;
-        if (index > totalSlides - 1) index = totalSlides - 1;
-        currentIndex = index;
-
-        // Slide calculation
-        var slideWidth = slides[0].offsetWidth + 24; // width + gap
-        track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
-
-        slides.forEach(function (s, i) {
-          if (i === currentIndex) {
-            s.classList.add('active-card');
-          } else {
-            s.classList.remove('active-card');
-          }
-        });
-
-        dots.forEach(function (d, i) {
-          if (i === currentIndex) {
-            d.classList.add('active');
-          } else {
-            d.classList.remove('active');
-          }
-        });
-
-        playUiSound(440 + currentIndex * 60, 0.05);
-      }
-
-      if (btnPrev && btnNext) {
-        btnPrev.addEventListener('click', function () {
-          updateCarousel(currentIndex - 1);
-        });
-        btnNext.addEventListener('click', function () {
-          updateCarousel(currentIndex + 1);
-        });
-      }
-
-      dots.forEach(function (dot) {
-        dot.addEventListener('click', function () {
-          var idx = parseInt(dot.getAttribute('data-idx'), 10);
-          updateCarousel(idx);
-        });
-      });
-
-      slides.forEach(function (slide, idx) {
-        slide.addEventListener('click', function () {
-          updateCarousel(idx);
-        });
-      });
-
-      // Keyboard left/right arrows for deck
-      window.addEventListener('keydown', function (e) {
-        if (e.key === 'ArrowLeft') updateCarousel(currentIndex - 1);
-        if (e.key === 'ArrowRight') updateCarousel(currentIndex + 1);
-      });
-
-      // 3. Web Audio API Interface Synthesizer (Zero External Dependencies)
-      var audioCtx = null;
-      var soundEnabled = false;
-      var soundBtn = document.getElementById('sound-btn');
-      var soundIcon = document.getElementById('sound-icon');
-      var soundText = document.getElementById('sound-text');
-
-      function initAudio() {
-        if (!audioCtx) {
-          var AudioContext = window.AudioContext || window.webkitAudioContext;
-          if (AudioContext) audioCtx = new AudioContext();
-        }
-      }
-
-      function playUiSound(freq, duration) {
-        if (!soundEnabled || !audioCtx) return;
-        try {
-          if (audioCtx.state === 'suspended') audioCtx.resume();
-          var osc = audioCtx.createOscillator();
-          var gain = audioCtx.createGain();
-          osc.type = 'sine';
-          osc.frequency.setValueAtTime(freq || 520, audioCtx.currentTime);
-          gain.gain.setValueAtTime(0.04, audioCtx.currentTime);
-          gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + (duration || 0.08));
-          osc.connect(gain);
-          gain.connect(audioCtx.destination);
-          osc.start();
-          osc.stop(audioCtx.currentTime + (duration || 0.08));
-        } catch (err) {}
-      }
-
-      if (soundBtn) {
-        soundBtn.addEventListener('click', function () {
-          initAudio();
-          soundEnabled = !soundEnabled;
-          soundIcon.textContent = soundEnabled ? '🔊' : '🔈';
-          soundText.textContent = soundEnabled ? 'Sound: On' : 'Sound: Off';
-          if (soundEnabled) playUiSound(680, 0.1);
-        });
-      }
-
-      // Add soft sound effect on interactive buttons & tabs
-      document.querySelectorAll('.btn-motion, .nav-tab, .c-btn, .ctrl-btn').forEach(function (el) {
-        el.addEventListener('mouseenter', function () {
-          playUiSound(340, 0.03);
-        });
-      });
-
-      // 4. Active Navigation Highlight on Scroll
-      var sections = document.querySelectorAll('section[id], header[id]');
-      var navTabs = document.querySelectorAll('.nav-tab');
-
-      window.addEventListener('scroll', function () {
-        var scrollY = window.pageYOffset;
-        sections.forEach(function (sec) {
-          var top = sec.offsetTop - 120;
-          var height = sec.offsetHeight;
-          var id = sec.getAttribute('id');
-          if (scrollY >= top && scrollY < top + height) {
-            navTabs.forEach(function (tab) {
-              if (tab.getAttribute('href') === '#' + id) {
-                tab.classList.add('active');
-              } else {
-                tab.classList.remove('active');
-              }
-            });
-          }
-        });
-      });
-
-    
-    // ─── Initialize Profile Hanging ID Badge (Lightswind Physics) ─────────
-    (function initProfileHangingBadge() {
-      // Generate Barcode
-      var barcodeEl = document.getElementById('profile-barcode');
+    (function initPortfolio() {
+      // 1. Generate Realistic Barcode
+      var barcodeEl = document.getElementById('hero-barcode');
       if (barcodeEl) {
         for (var i = 0; i < 30; i++) {
           var bar = document.createElement('div');
@@ -2190,99 +1816,120 @@
         }
       }
 
-      var cardAssembly = document.getElementById('profile-assembly');
-      if (!cardAssembly) return;
+      // 2. Hanging ID Card Pendulum Physics (Lightswind Equation)
+      var cardAssembly = document.getElementById('card-assembly');
+      if (cardAssembly) {
+        var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!prefersReduced) {
+          var angle = 0;
+          var vel = 0;
+          var DAMPING = 0.94; // Air resistance
+          var GRAVITY = 3200; // Gravity acceleration scalar
+          var ropeLength = 70;
 
-      var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReduced) return;
+          var isDragging = false;
+          var dragStartX = 0;
+          var dragAngle0 = 0;
+          var prevAngle = 0;
+          var prevTime = null;
+          var rafId = null;
 
-      var angle = 0;
-      var vel = 0;
-      var DAMPING = 0.94;
-      var GRAVITY = 3200;
-      var ropeLength = 70;
+          function tick(now) {
+            if (!prevTime) prevTime = now;
+            var dt = Math.min((now - prevTime) / 1000, 0.033);
+            prevTime = now;
 
-      var isDragging = false;
-      var dragStartX = 0;
-      var dragAngle0 = 0;
-      var prevAngle = 0;
-      var prevTime = null;
-      var rafId = null;
+            if (!isDragging) {
+              var effectiveL = (ropeLength + 130) / 100;
+              var accel = -(GRAVITY / 900 / effectiveL) * Math.sin(angle);
+              vel = (vel + accel * dt) * Math.pow(DAMPING, dt * 60);
+              angle += vel * dt;
 
-      function tick(now) {
-        if (!prevTime) prevTime = now;
-        var dt = Math.min((now - prevTime) / 1000, 0.033);
-        prevTime = now;
+              if (Math.abs(vel) > 0.002 || Math.abs(angle) > 0.002) {
+                rafId = requestAnimationFrame(tick);
+              } else {
+                angle = 0;
+                vel = 0;
+                rafId = null;
+              }
+            } else {
+              if (dt > 0) vel = (angle - prevAngle) / dt;
+              prevAngle = angle;
+              rafId = requestAnimationFrame(tick);
+            }
 
-        if (!isDragging) {
-          var effectiveL = (ropeLength + 130) / 100;
-          var accel = -(GRAVITY / 900 / effectiveL) * Math.sin(angle);
-          vel = (vel + accel * dt) * Math.pow(DAMPING, dt * 60);
-          angle += vel * dt;
-
-          if (Math.abs(vel) > 0.002 || Math.abs(angle) > 0.002) {
-            rafId = requestAnimationFrame(tick);
-          } else {
-            angle = 0;
-            vel = 0;
-            rafId = null;
+            var deg = angle * (180 / Math.PI);
+            var degY = deg * 0.35;
+            cardAssembly.style.transform = 'perspective(800px) rotate(' + deg + 'deg) rotateY(' + degY + 'deg)';
           }
-        } else {
-          if (dt > 0) vel = (angle - prevAngle) / dt;
-          prevAngle = angle;
-          rafId = requestAnimationFrame(tick);
+
+          function startPhysics() {
+            if (rafId) cancelAnimationFrame(rafId);
+            prevTime = null;
+            rafId = requestAnimationFrame(tick);
+          }
+
+          cardAssembly.addEventListener('pointerdown', function(e) {
+            cardAssembly.setPointerCapture(e.pointerId);
+            isDragging = true;
+            dragStartX = e.clientX;
+            dragAngle0 = angle;
+            prevAngle = angle;
+            startPhysics();
+          });
+
+          cardAssembly.addEventListener('pointermove', function(e) {
+            if (!isDragging) return;
+            var dx = e.clientX - dragStartX;
+            var L = ropeLength + 120;
+            angle = Math.max(-0.85, Math.min(0.85, dragAngle0 - dx / L));
+          });
+
+          function onPointerEnd(e) {
+            if (!isDragging) return;
+            try { cardAssembly.releasePointerCapture(e.pointerId); } catch(err) {}
+            isDragging = false;
+          }
+
+          cardAssembly.addEventListener('pointerup', onPointerEnd);
+          cardAssembly.addEventListener('pointercancel', onPointerEnd);
+
+          cardAssembly.addEventListener('click', function() {
+            if (Math.abs(vel) < 0.1 && Math.abs(angle) < 0.05) {
+              vel = 2.8; // Impulse push
+              startPhysics();
+            }
+          });
+
+          // Gentle greeting impulse on page load
+          setTimeout(function() {
+            vel = 1.6;
+            startPhysics();
+          }, 600);
         }
-
-        var deg = angle * (180 / Math.PI);
-        var degY = deg * 0.35;
-        cardAssembly.style.transform = 'perspective(800px) rotate(' + deg + 'deg) rotateY(' + degY + 'deg)';
       }
 
-      function startPhysics() {
-        if (rafId) cancelAnimationFrame(rafId);
-        prevTime = null;
-        rafId = requestAnimationFrame(tick);
-      }
+      // 3. Active Nav Link on Scroll
+      var sections = document.querySelectorAll('section[id]');
+      var navLinks = document.querySelectorAll('.lw-nav-link');
 
-      cardAssembly.addEventListener('pointerdown', function(e) {
-        cardAssembly.setPointerCapture(e.pointerId);
-        isDragging = true;
-        dragStartX = e.clientX;
-        dragAngle0 = angle;
-        prevAngle = angle;
-        startPhysics();
+      window.addEventListener('scroll', function() {
+        var scrollPos = window.pageYOffset + 120;
+        sections.forEach(function(sec) {
+          var top = sec.offsetTop;
+          var height = sec.offsetHeight;
+          var id = sec.getAttribute('id');
+          if (scrollPos >= top && scrollPos < top + height) {
+            navLinks.forEach(function(link) {
+              if (link.getAttribute('href') === '#' + id) {
+                link.classList.add('active');
+              } else {
+                link.classList.remove('active');
+              }
+            });
+          }
+        });
       });
-
-      cardAssembly.addEventListener('pointermove', function(e) {
-        if (!isDragging) return;
-        var dx = e.clientX - dragStartX;
-        var L = ropeLength + 120;
-        angle = Math.max(-0.85, Math.min(0.85, dragAngle0 - dx / L));
-      });
-
-      function onPointerEnd(e) {
-        if (!isDragging) return;
-        try { cardAssembly.releasePointerCapture(e.pointerId); } catch(err) {}
-        isDragging = false;
-      }
-
-      cardAssembly.addEventListener('pointerup', onPointerEnd);
-      cardAssembly.addEventListener('pointercancel', onPointerEnd);
-
-      cardAssembly.addEventListener('click', function() {
-        if (Math.abs(vel) < 0.1 && Math.abs(angle) < 0.05) {
-          vel = 2.8; // Gentle impulse push
-          startPhysics();
-        }
-      });
-
-      // Greeting impulse after brief entry delay
-      setTimeout(function() {
-        vel = 1.6;
-        startPhysics();
-      }, 700);
-    })();
-
     })();
   </script>
 </body>
